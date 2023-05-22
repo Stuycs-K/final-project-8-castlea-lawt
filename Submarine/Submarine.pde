@@ -14,4 +14,9 @@ public Submarine(double x, double y){
   positionY = y;
 }
 
+public void changePos(double x, double y){
+  positionX = x;
+  positionY = y;
+}
+
 }
