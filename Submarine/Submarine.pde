@@ -19,4 +19,20 @@ public void changePos(double x, double y){
   positionY = y;
 }
 
+void keyPressed(){
+ if(key == CODED){
+  if(keyCode == UP){
+   //change position accordingly 
+  }
+  else if(keyCode == DOWN){
+   //change position accordingly 
+  }
+  else if(keyCode == LEFT){
+    //change posit
+  }
+  else{
+   //change positon 
+  }
+ }
+}
 }
