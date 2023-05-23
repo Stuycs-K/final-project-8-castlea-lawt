@@ -1,4 +1,4 @@
-public class SubmarineObj{
+final class Submarine{
   private double positionX, positionY; // set to a default value later maybe
 
 public double getPosX(){
@@ -9,7 +9,7 @@ public double getPosY(){
   return positionY;
 }
 
-public SubmarineObj(double x, double y){
+ public Submarine(double x, double y){
   positionX = x;
   positionY = y;
 }
