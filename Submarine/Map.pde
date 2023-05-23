@@ -1,19 +1,12 @@
 public class Map{
   private char[][] map;
   private int mode;
-<<<<<<< HEAD
-  //private Coordinate start,end;
-=======
-  private Coordinate start,end;
->>>>>>> ea3cb70bce2c2f61d093c34748f54d63d5849980
+  private Coordinate start;
   
   public Map(int mo){
     map = new char[20][18];
     mode = mo;
-<<<<<<< HEAD
-=======
-    start = new Coordinate(
->>>>>>> ea3cb70bce2c2f61d093c34748f54d63d5849980
+    start = new Coordinate(3,4);
   }
   
   public void makeMap(){
@@ -26,6 +19,7 @@ public class Map{
   }
   
   private void carveMap(){
-    
+    map[start.getX()][start.getY()] = ' ';
+    map[start.getX()]
   }
 }
