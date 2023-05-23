@@ -18,9 +18,9 @@ public void changePos(double x, double y){
   if(x < 0 ){
     positionX = 0;
   }
-  else if(x > //map len){
+  /*else if(x > //map len){
    positionX = //map len; 
-  }
+  }*/
   else{
     positionX = x;
   }
@@ -28,9 +28,9 @@ public void changePos(double x, double y){
    if(y < 0 ){
     positionY = 0;
   }
-  else if(y > //map len){
+  /*else if(y > //map len){
    positionY = //map len; 
-  }
+  }*/
   else{
     positionY = y;
   }
