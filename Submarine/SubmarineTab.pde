@@ -1,4 +1,4 @@
-final class Submarine{
+public class Submarine{
   private double positionX, positionY; // set to a default value later maybe
 
 public double getPosX(){
