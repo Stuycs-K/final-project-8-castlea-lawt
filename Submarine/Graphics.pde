@@ -1,4 +1,4 @@
-PShape left,right,up,down;
+PShape left,right,up,down,radar;
 void setup(){
   fullScreen();
   background(100, 0, 0);
@@ -26,6 +26,9 @@ void setup(){
   triangle(width/3+155, height/2+400, width/3+10, height/2+450, width/3+10, height/2+350);
   triangle(2*width/3, height/2+225, 2*width/3+50, height/2+325, 2*width/3-50, height/2+325);
   triangle(2*width/3, height/2+425, 2*width/3+50, height/2+330, 2*width/3-50, height/2+330);
+  fill(0,155,0);
+  radar = createShape(TRIANGLE,width/3,height/2+100,width/3-10,height/2+200,width/3+10,height/2+200);
+  shape(radar);
 }
 void draw(){
   
