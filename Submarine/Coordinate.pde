@@ -16,10 +16,10 @@ public class Coordinate{
   public int[] getCoordinate(){
     return coordinate;
   }
-  public setX(int newX){
+  public void setX(int newX){
     coorX = newX;
   }
-  public setY(int newY){
+  public void setY(int newY){
     coorY = newY;
   }
 }
