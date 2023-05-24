@@ -1,5 +1,10 @@
 PShape left,right,up,down,radar;
 void setup(){
+  ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
+  int taskCounter = 0;
+  String[]images = new String["task1.png","task2.jpg"]; //9 imgs will manually add names of images later on
+  PImage photo;
+  boolean rightLoco;
   fullScreen();
   background(100, 0, 0);
   fill(183,65,14);
@@ -31,5 +36,5 @@ void setup(){
   shape(radar);
 }
 void draw(){
-  
+  //tammy integrate the camera method here from progress
 }
