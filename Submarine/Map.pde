@@ -28,7 +28,9 @@ public class Map{
       for(int x = 0; x<18; x++){
         char working = map[i][x];
         if(working==' '){
-          
+          if(map[i-1][x]=='#'&&map[i][x-1]=='#'){
+            
+          }
         }
       }
     }
