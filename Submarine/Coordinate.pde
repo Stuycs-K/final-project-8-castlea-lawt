@@ -13,7 +13,7 @@ public class Coordinate{
   public int getY(){
     return coorY;
   }
-  public int[] getCoordinate{
+  public int[] getCoordinate(){
     return coordinate;
   }
   public setX(int newX){
