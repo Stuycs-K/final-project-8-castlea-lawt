@@ -1,8 +1,8 @@
 import java.util.*;
 public class Progress {
-  ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(10)//randomized or not? + placeholder c
+  ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(10);//randomized or not? + placeholder c
   int taskCounter = 0;
-  String[]images = new String[10] //placeholder, will manually add names of images later on
+  String[]images = new String[10]; //placeholder, will manually add names of images later on
   Pimage photo;
   boolean rightLoco;
   public void camera(Coordinate loco) { //should be triggered by a key press? -> put in draw maybe?

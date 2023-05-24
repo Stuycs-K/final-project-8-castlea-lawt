@@ -6,7 +6,7 @@ public class Map{
   public Map(int mo){
     map = new char[20][18];
     mode = mo;
-    start = new Coordinate(
+    //start = new Coordinate(
   }
   
   public void makeMap(){
