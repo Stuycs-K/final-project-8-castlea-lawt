@@ -7,10 +7,10 @@ public class Coordinate{
     coordinate = new int[] {x,y};
   }
   
-  public int getX{
+  public int getX(){
     return coorX;
   }
-  public int getY{
+  public int getY(){
     return coorY;
   }
   public int[] getCoordinate{
