@@ -1,4 +1,5 @@
 PShape left,right,up,down,radar;
+Map layout = new Map();
 void setup(){
   ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
   int taskCounter = 0;

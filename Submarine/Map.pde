@@ -7,6 +7,7 @@ public class Map{
     map = new char[20][18];
     SQUARESIZE = 5;
     start = new Coordinate(3,4);
+    makeMap();
   }
   
   public void makeMap(){
@@ -23,7 +24,7 @@ public class Map{
     }
   }
   
-  keyPressed(){
+  void keyPressed(){
     if(key == 'N'||key=='n'){
       display();
     }
@@ -49,13 +50,13 @@ public class Map{
             }
             else{
               fill(0,100,0);
-              rect(i*SQUARESIZE,c*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+              rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
             }
           }
         }
         else{
           fill(0);
-          rect(i*SQUARESIZE,c*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+          rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
         }
       }
     }
