@@ -15,11 +15,22 @@ public class Map{
         map[i][x] = '#';
       }
     }
-    carveMap();
+    map[start.getX()][start.getY()] = ' ';
+    for(int i = 0; i<180; i++){
+      int x = (int)(Math.random()*20);
+      int y = (int)(Math.random()*18);
+      map[x][y]=' ';
+    }
   }
   
-  private void carveMap(){
-    map[start.getX()][start.getY()] = ' ';
-    map[start.getX()]
+  public void display(){
+    for(int i = 0;i<20;i++){
+      for(int x = 0; x<18; x++){
+        char working = map[i][x];
+        if(working==' '){
+          
+        }
+      }
+    }
   }
 }
