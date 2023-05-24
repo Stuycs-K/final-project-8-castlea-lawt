@@ -1,10 +1,11 @@
 public class Map{
   private char[][] map;
-  private int SQUARESIZE;
+  private int mode, SQUARESIZE;
   private Coordinate start;
   
-  public Map(){
+  public Map(int mo){
     map = new char[20][18];
+    mode = mo;
     SQUARESIZE = 5;
     start = new Coordinate(3,4);
     makeMap();
@@ -24,11 +25,11 @@ public class Map{
     }
   }
   
-  void keyPressed(){
-    if(key == 'N'||key=='n'){
+  void mouseClicked(){
+    if(mode == 1){
       display();
     }
-    if(key == 'C' || key == 'c'){
+    if(mode == 2){
       cheatDisplay();
     }
   }
