@@ -6,7 +6,7 @@ public class Map{
   public Map(int mo){
     map = new char[20][18];
     mode = mo;
-    SQUARESIZE = 5;
+    SQUARESIZE = 30;
     start = new Coordinate(3,4);
     makeMap();
   }
@@ -18,7 +18,7 @@ public class Map{
       }
     }
     map[start.getX()][start.getY()] = ' ';
-    for(int i = 0; i<180; i++){
+    for(int i = 0; i<250; i++){
       int x = (int)(Math.random()*20);
       int y = (int)(Math.random()*18);
       map[x][y]=' ';
@@ -40,21 +40,21 @@ public class Map{
       for(int x = 0; x<18; x++){
         char working = map[i][x];
         if(working==' '){
-          if(i>0){
-          if(map[i-1][x]=='#'&&map[i][x-1]=='#'){
+          if(i>0&&x>0){if(map[i-1][x]=='#'&&map[i][x-1]=='#'){
             fill(0);
             triangle(i*SQUARESIZE,x*SQUARESIZE,i*SQUARESIZE+SQUARESIZE,x*SQUARESIZE,i*SQUARESIZE,x*SQUARESIZE+SQUARESIZE);
           }
+          }
           else{
-            if(map[i+1][x]=='#'&&map[i][x]=='#'){
+            if(i<map.length-1){if(map[i+1][x]=='#'&&map[i][x]=='#'){
               fill(0);
               triangle(i*SQUARESIZE+SQUARESIZE,x*SQUARESIZE+SQUARESIZE,i*SQUARESIZE+SQUARESIZE,x*SQUARESIZE,i*SQUARESIZE,x*SQUARESIZE+SQUARESIZE);
+            }
             }
             else{
               fill(0,100,0);
               rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
             }
-          }
           }
         }
         else{
