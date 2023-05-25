@@ -1,5 +1,5 @@
 PShape left, right, up, down, radar;
-Map layout = new Map();
+Map layout;
 ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
 //int taskCounter = 0;
 String[]images = new String[]{"task1.png", "task2.jpg"}; //9 imgs will manually add names of images later on
@@ -41,6 +41,8 @@ void displayScreen() {
 void setup() {
   fullScreen();
   displayScreen();
+  layout = new Map(1);
+  layout.display();
 }
 
 void draw() {
