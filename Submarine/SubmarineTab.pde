@@ -1,20 +1,20 @@
 public class Submarine {
-  private double positionX, positionY; // set to a default value later maybe
+  private int positionX, positionY; // set to a default value later maybe
 
-  public double getPosX() {
+  public int getPosX() {
     return positionX;
   }
 
-  public double getPosY() {
+  public int getPosY() {
     return positionY;
   }
 
-  public Submarine(double x, double y) {
+  public Submarine(int x, int y) {
     positionX = x;
     positionY = y;
   }
 
-  public void changePos(double x, double y) {
+  public void changePos(int x, int y) {
     if (x < 0 ) {
       positionX = 0;
     }
