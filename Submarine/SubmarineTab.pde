@@ -1,5 +1,5 @@
 public class Submarine {
-  private int positionX, positionY; // set to a default value later maybe
+  private int positionX, positionY, degrees; // set to a default value later maybe
 
   public int getPosX() {
     return positionX;
@@ -18,12 +18,14 @@ public class Submarine {
     //for changing position
     // if there is a space at this coordinate then change
     // else stays the same
-    if(Map.map[x][y] = '#'){
-      
+    if (Map.map[x][y] = '#') {
+    } else {
+      positionX = x;
+      positionY = y;
     }
-    else{
-      
-    }
+  }
+
+  void calcDirection() {
   }
 
   void keyPressed() {
@@ -33,9 +35,17 @@ public class Submarine {
       } else if (keyCode == DOWN) {
         changePos(getPosX(), getPosY() + 1);
       } else if (keyCode == LEFT) {
-        changePos(getPosX() - 1, getPosY());
+        degrees--;
+        if (degrees < 0) {
+          degrees = 0;
+        }
+        //changePos(getPosX() - 1, getPosY());
       } else {
-        changePos(getPosX() + 1, getPosY());
+        //changePos(getPosX() + 1, getPosY());
+        degrees++;
+        if (degrees > 360) {
+          degrees = 0;
+        }
       }
     }
   }
