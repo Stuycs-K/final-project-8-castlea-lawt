@@ -24,7 +24,7 @@ public class Map{
       }
     }
     map[start.getX()][start.getY()] = ' ';
-    for(int i = 0; i<4; i++){
+    for(int i = 0; i<5; i++){
       int x = (int)(Math.random()*20);
       int y = (int)(Math.random()*18);
       map[x][y]=' ';
@@ -35,21 +35,25 @@ public class Map{
           case 1:
           if(x>0){
             x--;
+            z++;
           }
           break;
           case 2:
           if(x<map.length-1){
             x++;
+            z++;
           }
           break;
           case 3:
           if(y>0){
             y--;
+            z++;
           }
           break;
           case 4:
           if(y<map[1].length-1){
             y++;
+            z++;
           }
           break;
           default:
@@ -59,11 +63,11 @@ public class Map{
             map[x][y-1] = ' ';
             map[x][y+1] = ' ';
             if(x<map.length-2){x+=2;}
+            z++;
           }
           break;
         }
         map[x][y] = ' ';
-        z++;
       }
     }
   }
