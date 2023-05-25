@@ -15,24 +15,14 @@ public class Submarine {
   }
 
   public void changePos(int x, int y) {
-    if (x < 0 ) {
-      positionX = 0;
+    //for changing position
+    // if there is a space at this coordinate then change
+    // else stays the same
+    if(Map.map[x][y] = '#'){
+      
     }
-    /*else if(x > //map len){
-     positionX = //map len;
-     }*/
-    else {
-      positionX = x;
-    }
-
-    if (y < 0 ) {
-      positionY = 0;
-    }
-    /*else if(y > //map len){
-     positionY = //map len;
-     }*/
-    else {
-      positionY = y;
+    else{
+      
     }
   }
 
