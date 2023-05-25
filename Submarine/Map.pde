@@ -7,7 +7,9 @@ public class Map{
     map = new char[20][18];
     mode = mo;
     SQUARESIZE = 30;
-    start = new Coordinate(3,4);
+    int randX = (int)(Math.random()*20);
+    int randY = (int)(Math.random()*18);
+    start = new Coordinate(randX,randY);
     makeMap();
   }
   
@@ -22,10 +24,47 @@ public class Map{
       }
     }
     map[start.getX()][start.getY()] = ' ';
-    for(int i = 0; i<250; i++){
+    for(int i = 0; i<4; i++){
       int x = (int)(Math.random()*20);
       int y = (int)(Math.random()*18);
       map[x][y]=' ';
+      int z = 0;
+      while(z<50){
+        int rand = (int)(Math.random()*5)+1;
+        switch(rand){
+          case 1:
+          if(x>0){
+            x--;
+          }
+          break;
+          case 2:
+          if(x<map.length-1){
+            x++;
+          }
+          break;
+          case 3:
+          if(y>0){
+            y--;
+          }
+          break;
+          case 4:
+          if(y<map[1].length-1){
+            y++;
+          }
+          break;
+          default:
+          if(x<map.length-1&&x>0&&y>0&&y<map[1].length-1){
+            map[x-1][y] = ' ';
+            map[x+1][y] = ' ';
+            map[x][y-1] = ' ';
+            map[x][y+1] = ' ';
+            x+=2;
+          }
+          break;
+        }
+        map[x][y] = ' ';
+        z++;
+      }
     }
   }
   
