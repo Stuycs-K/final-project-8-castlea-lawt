@@ -1,5 +1,5 @@
 public class Map{
-  private char[][] map;
+  public char[][] map;
   private int mode, SQUARESIZE;
   private Coordinate start;
   
@@ -40,6 +40,7 @@ public class Map{
       for(int x = 0; x<18; x++){
         char working = map[i][x];
         if(working==' '){
+          if(i>0){
           if(map[i-1][x]=='#'&&map[i][x-1]=='#'){
             fill(0);
             triangle(i*SQUARESIZE,x*SQUARESIZE,i*SQUARESIZE+SQUARESIZE,x*SQUARESIZE,i*SQUARESIZE,x*SQUARESIZE+SQUARESIZE);
@@ -53,6 +54,7 @@ public class Map{
               fill(0,100,0);
               rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
             }
+          }
           }
         }
         else{
