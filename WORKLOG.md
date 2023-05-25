@@ -65,5 +65,6 @@ Map_Tab:  // made map arr public, some edits to display in process
           // The map now displays with no issues after putting in a bunch of if statements.
           // Also added a char value to corners for later accessibility
           // added accessor method getAt(x,y) in Map Class
+          // more efficient carve method, added a for loop and a while loop to try and create different paths
 
 Graphics_Tab: // Added Map.display to setup
