@@ -29,6 +29,10 @@ Graphics_Tab: // Removed rightLoco and replaced with boolean displayImg
               // Moved most of graphics code into a displayScreen() method
               // Moved the Camera method into draw() which I made a keyPressed() for
 
+### 5/25/23
+Submarine_Tab: // Worked on the ChangePos() method !!!!!!!!!![finish later]
+               // Planned out the calcDirection() method and !!!!!
+               // Added degrees instance variable
 
 ## GROUP MEMBER 2 : Anabella Castle
 
