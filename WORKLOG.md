@@ -30,12 +30,26 @@ Graphics_Tab: // Removed rightLoco and replaced with boolean displayImg
               // Moved the Camera method into draw() which I made a keyPressed() for
 
 
-## GROUP MEMBER 2
+## GROUP MEMBER 2 : Anabella Castle
 
-### date x
+### 5/22/23
 
-info
+Graphics_Tab: // Completed a very basic background for the game -> now when the program is run we go straight into the submarine screen that mimics the source material.
+              // Made arrows that we may or may not use -> could potentially be used as buttons instead of the arrow keys as a bonus feature.
 
-### date y
+### 5/23/23
 
-info
+Graphics_Tab: // made very basic graphics for radar -> to be used in later code
+
+Map_Tab:  // Made the fields and constructors for Map
+          // Made a carveMap function
+
+Coordinates_Tab: // Wrote the constructors, fields, mutator methods and accessor methods. -> we now have a class that holds an (x,y) pairing with access to those x and y values
+
+### 5/24/23
+
+Map_Tab:  // Made a random map generator -> char[][] with '#' and spaces
+          // Coded a display function that doesn't work yet -- having issues with the trigger I think
+          // made a keyPressed function
+          // changed keyPressed to MouseClicked -> still isn't working quite right
+          // fixed some merge errors
