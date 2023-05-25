@@ -9,7 +9,7 @@ public class Progress {
     rightLoco = false;
     for (int i = 0; i < tasks.size(); i++) {
       if (loco.getX() == tasks.get(i).getX() && loco.getY()== tasks.get(i).getY()) {
-        loadImage(images.get(taskCounter));
+        loadImage(images[taskCounter]);
         photo = loadImage(images[taskCounter]);
         image(photo, width/2, height/2, 10, 10);
         taskCounter++;
