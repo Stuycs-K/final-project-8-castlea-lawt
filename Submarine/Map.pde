@@ -1,5 +1,5 @@
 public class Map{
-  public char[][] map;
+  private char[][] map;
   private int mode, SQUARESIZE;
   private Coordinate start;
   
@@ -9,6 +9,10 @@ public class Map{
     SQUARESIZE = 30;
     start = new Coordinate(3,4);
     makeMap();
+  }
+  
+  public char getAt(int x, int y){
+    return map[x][y];
   }
   
   public void makeMap(){
