@@ -58,7 +58,7 @@ public class Map{
             map[x+1][y] = ' ';
             map[x][y-1] = ' ';
             map[x][y+1] = ' ';
-            x+=2;
+            if(x<map.length-2){x+=2;}
           }
           break;
         }
