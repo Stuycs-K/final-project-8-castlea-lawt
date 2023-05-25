@@ -53,3 +53,11 @@ Map_Tab:  // Made a random map generator -> char[][] with '#' and spaces
           // made a keyPressed function
           // changed keyPressed to MouseClicked -> still isn't working quite right
           // fixed some merge errors
+
+### 5/25/23
+
+Map_Tab:  // made map arr public, some edits to display in process
+          // adjusted display so that is doesn't return any errors, it now displays the map when program runs
+          // The map now displays with no issues after putting in a bunch of if statements.
+          // Also added a char value to corners for later accessibility
+          // added accessor method getAt(x,y) in Map Class
