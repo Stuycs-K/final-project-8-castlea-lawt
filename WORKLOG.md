@@ -29,6 +29,10 @@ Graphics_Tab: // Removed rightLoco and replaced with boolean displayImg
               // Moved most of graphics code into a displayScreen() method
               // Moved the Camera method into draw() which I made a keyPressed() for
 
+### 5/25/23
+Submarine_Tab: // Worked on the ChangePos() method !!!!!!!!!![finish later]
+               // Planned out the calcDirection() method and !!!!!
+               // Added degrees instance variable
 
 ## GROUP MEMBER 2 : Anabella Castle
 
@@ -53,3 +57,14 @@ Map_Tab:  // Made a random map generator -> char[][] with '#' and spaces
           // made a keyPressed function
           // changed keyPressed to MouseClicked -> still isn't working quite right
           // fixed some merge errors
+
+### 5/25/23
+
+Map_Tab:  // made map arr public, some edits to display in process
+          // adjusted display so that is doesn't return any errors, it now displays the map when program runs
+          // The map now displays with no issues after putting in a bunch of if statements.
+          // Also added a char value to corners for later accessibility
+          // added accessor method getAt(x,y) in Map Class
+          // more efficient carve method, added a for loop and a while loop to try and create different paths
+
+Graphics_Tab: // Added Map.display to setup
