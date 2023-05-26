@@ -30,9 +30,10 @@ Graphics_Tab: // Removed rightLoco and replaced with boolean displayImg
               // Moved the Camera method into draw() which I made a keyPressed() for
 
 ### 5/25/23
-Submarine_Tab: // Worked on the ChangePos() method !!!!!!!!!![finish later]
-               // Planned out the calcDirection() method and !!!!!
+Submarine_Tab: // Altered the ChangePos() method, however still have issues accessing the map 
+               // Finished calcdirection() method
                // Added degrees instance variable
+               // Integrated the above two methods into keyPressed()
 
 ## GROUP MEMBER 2 : Anabella Castle
 
