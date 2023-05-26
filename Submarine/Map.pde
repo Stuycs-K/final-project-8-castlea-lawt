@@ -127,6 +127,12 @@ public class Map{
         }
       }
     }
+    for(int i = 0; i<tasks.size(); i++){
+      Coordinate one = tasks.get(i);
+      map[one.getX()][one.getY()] = '*';
+      fill(150,0,20);
+      rect(one.getX()*SQUARESIZE,one.getY()*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+    }
   }
   
   public void cheatDisplay(){
