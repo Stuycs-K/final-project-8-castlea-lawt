@@ -7,6 +7,7 @@ PImage photo;
 boolean displayImg = false;
 Submarine sub = new Submarine(0, 0);
 
+
 void displayScreen() {
   background(100, 0, 0);
   fill(183, 65, 14);
@@ -40,6 +41,15 @@ void displayScreen() {
 
 void setup() {
   fullScreen();
+  tasks.add(new Coordinate(3,4));
+  tasks.add(new Coordinate(15,16));
+  tasks.add(new Coordinate(12,17));
+  tasks.add(new Coordinate(3,10));
+  tasks.add(new Coordinate(10,6));
+  tasks.add(new Coordinate(7,13));
+  tasks.add(new Coordinate(2,14));
+  tasks.add(new Coordinate(19,17));
+  tasks.add(new Coordinate(1,10));
   displayScreen();
   layout = new Map(1);
   layout.display();
