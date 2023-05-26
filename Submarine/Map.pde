@@ -24,10 +24,56 @@ public class Map{
       }
     }
     map[start.getX()][start.getY()] = ' ';
-    for(int i = 0; i<5; i++){
+    for(int i = 0; i<2; i++){
       int x = (int)(Math.random()*20);
       int y = (int)(Math.random()*18);
       map[x][y]=' ';
+      int z = 0;
+      while(z<50){
+        int rand = (int)(Math.random()*5)+1;
+        switch(rand){
+          case 1:
+          if(x>0){
+            x--;
+            z++;
+          }
+          break;
+          case 2:
+          if(x<map.length-1){
+            x++;
+            z++;
+          }
+          break;
+          case 3:
+          if(y>0){
+            y--;
+            z++;
+          }
+          break;
+          case 4:
+          if(y<map[1].length-1){
+            y++;
+            z++;
+          }
+          break;
+          default:
+          if(x<map.length-1&&x>0&&y>0&&y<map[1].length-1){
+            map[x-1][y] = ' ';
+            map[x+1][y] = ' ';
+            map[x][y-1] = ' ';
+            map[x][y+1] = ' ';
+            if(x<map.length-2){x+=2;}
+            z++;
+          }
+          break;
+        }
+        map[x][y] = ' ';
+      }
+    }
+    for(int i = 0; i<tasks.size(); i++){
+      int x = tasks.get(i).getX();
+      int y = tasks.get(i).getY();
+      map[x][y]='*';
       int z = 0;
       while(z<50){
         int rand = (int)(Math.random()*5)+1;
@@ -122,16 +168,16 @@ public class Map{
           }
         }
         else{
+          if(working == '*'){
+            fill(150,0,20);
+            rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+          }
+          else{
           fill(0);
           rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+          }
         }
       }
-    }
-    for(int i = 0; i<tasks.size(); i++){
-      Coordinate one = tasks.get(i);
-      map[one.getX()][one.getY()] = '*';
-      fill(150,0,20);
-      rect(one.getX()*SQUARESIZE,one.getY()*SQUARESIZE,SQUARESIZE,SQUARESIZE);
     }
   }
   
