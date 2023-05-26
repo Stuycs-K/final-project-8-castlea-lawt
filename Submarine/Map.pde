@@ -113,7 +113,9 @@ public class Map{
           }
           break;
         }
-        map[x][y] = ' ';
+        if(x!=tasks.get(i).getX()&&y!=tasks.get(i).getY()&&x!=start.getX()&&x!=start.getY()){
+          map[x][y] = ' ';
+        }
       }
     }
   }
