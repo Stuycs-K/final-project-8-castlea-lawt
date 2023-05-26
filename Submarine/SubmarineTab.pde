@@ -14,28 +14,6 @@ public class Submarine {
     positionY = y;
   }
 
-  public void changePos(double x, double y) {
-    if (x < 0 ) {
-      positionX = 0;
-    }
-    /*else if(x > //map len){
-     positionX = //map len;
-     }*/
-    else {
-      positionX = x;
-    }
-
-    if (y < 0 ) {
-      positionY = 0;
-    }
-    /*else if(y > //map len){
-     positionY = //map len;
-     }*/
-    else {
-      positionY = y;
-    }
-  }
-
   public void changePos(int x, int y) {
     char wall = layout.getAt(x,y);
     if (wall == '#') {
