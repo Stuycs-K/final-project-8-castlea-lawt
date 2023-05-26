@@ -9,13 +9,21 @@ public class Submarine {
     return positionY;
   }
 
+public int getDeg(){
+  return degrees;
+}
+
+public void changeDeg(int newDeg){
+  degrees= newDeg;
+}
+
   public Submarine(int x, int y) {
     positionX = x;
     positionY = y;
   }
 
   public void changePos(int x, int y) {
-    char wall = layout.getAt(x,y);
+    char wall = layout.getAt(x, y);
     if (wall == '#') {
     } else {
       positionX = x;
@@ -49,24 +57,30 @@ public class Submarine {
   }
 
   public void keyPressed() {
-    if (key == CODED) {
-      if (keyCode == UP) {
-        changePos(getPosX(), getPosY() - 1);
-      } else if (keyCode == DOWN) {
-        changePos(getPosX(), getPosY() + 1);
-      } else if (keyCode == LEFT) {
-        degrees--;
-        if (degrees < 0) {
-          degrees = 0;
+    //while (keyPressed) {
+      if (key == CODED) {
+        if (keyCode == UP) {
+          changePos(getPosX(), getPosY() - 1);
+        } else if (keyCode == DOWN) {
+          changePos(getPosX(), getPosY() + 1);
+        } else if (keyCode == LEFT) {
+          degrees--;
+          if (degrees < 0) {
+            degrees = 0;
+          }
+          radar.rotate(radians(-1));
+          calcDirection(degrees);
+          println("turning left");
+        } else if (keyCode == RIGHT) {
+          degrees++;
+          if (degrees > 360) {
+            degrees = 0;
+          }
+          radar.rotate(radians(1));
+          calcDirection(degrees);
+          println("turning right");
         }
-        calcDirection(degrees);
-      } else if (keyCode == RIGHT) {
-        degrees++;
-        if (degrees > 360) {
-          degrees = 0;
-        }
-        calcDirection(degrees);
       }
     }
-  }
+  //}
 }
