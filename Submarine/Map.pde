@@ -164,7 +164,7 @@ public class Map{
           }
           else{
             fill(0,50,0);
-             rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+            rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
           }
         }
         else{
@@ -173,8 +173,8 @@ public class Map{
             rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
           }
           else{
-          fill(0);
-          rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+            fill(0);
+            rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
           }
         }
       }
