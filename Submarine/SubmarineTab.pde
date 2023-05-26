@@ -15,14 +15,16 @@ public class Submarine {
   }
 
   public void changePos(int x, int y) {
-    if ( getAt(x, y) = '#') {
+    char wall = Map.getAt(x,y);
+    if (wall = '#') {
     } else {
       positionX = x;
       positionY = y;
     }
   }
 
-  void calcDirection(degrees) {
+  //public int getDegrees(
+  public void calcDirection(int degrees) {
     //quadrant 1: degrees 0-90
     //quadrant 2: degrees 91-180
     //quadrant 3: degrees 181-270
@@ -46,7 +48,7 @@ public class Submarine {
     }
   }
 
-  void keyPressed() {
+  public void keyPressed() {
     if (key == CODED) {
       if (keyCode == UP) {
         changePos(getPosX(), getPosY() - 1);
