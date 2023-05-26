@@ -72,26 +72,20 @@ void draw() {
       }
     }
     else if (key == CODED) {
-        if (keyCode == UP) {
-          sub.changePos(sub.getPosX(), sub.getPosY() - 1);
-        } else if (keyCode == DOWN) {
-          sub.changePos(sub.getPosX(), sub.getPosY() + 1);
+        if (keyCode == UP || keyCode == DOWN) {
+          sub.calcDirection(sub.getDeg());
         } else if (keyCode == LEFT) {
           sub.changeDeg(sub.getDeg()- 1);
           if (sub.getDeg() < 0) {
             sub.changeDeg(0);
           }
           radar.rotate(radians(-1));
-          sub.calcDirection(sub.getDeg());
-          println("turning left");
         } else if (keyCode == RIGHT) {
           sub.changeDeg(sub.getDeg() + 1);
           if (sub.getDeg() > 360) {
             sub.changeDeg(0);
           }
-          radar.rotate(radians(1));
-          sub.calcDirection(sub.getDeg());
-          println("turning right");
+          radar.rotate(PI); //raidnas 1
         }
       }
   }
