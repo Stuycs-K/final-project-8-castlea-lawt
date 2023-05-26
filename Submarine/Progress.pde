@@ -1,4 +1,3 @@
-
 public class Progress {
   ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
   int taskCounter = 0;

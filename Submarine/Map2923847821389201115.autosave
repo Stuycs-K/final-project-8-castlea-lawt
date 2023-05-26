@@ -1,0 +1,31 @@
+public class Map{
+  private char[][] map;
+  private int mode;
+  private Coordinate start;
+  
+  public Map(int mo){
+    map = new char[20][18];
+    mode = mo;
+    start = new Coordinate(17,3);
+  }
+  
+  public void makeMap(){
+    for(int i = 0; i<map.length;i++){
+      for(int x = 0; x<map[0].length; x++){
+        map[i][x] = '#';
+      }
+    }
+    carveMap();
+  }
+  
+  private void carveMap(){
+    map[17][3] = ' ';
+    map[16][3] = ' ';
+    map[15][3] = '/';
+    map[15][4] = ' ';
+    map[16][4] = '>'; //meant to be '\' but that isn't a char apparently
+    map[15][5] = ' '; 
+    map[16][5] = ' ';
+    map[16][6] = '/';
+  }
+}
