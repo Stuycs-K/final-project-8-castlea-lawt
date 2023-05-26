@@ -23,7 +23,7 @@ public class Map{
         map[i][x] = '#';
       }
     }
-    map[start.getX()][start.getY()] = ' ';
+    map[start.getX()][start.getY()] = 'x';
     for(int i = 0; i<2; i++){
       int x = (int)(Math.random()*20);
       int y = (int)(Math.random()*18);
@@ -130,6 +130,8 @@ public class Map{
   public void display(){
     noStroke();
     rectMode(CORNER);
+    fill(0,0,150);
+    rect(start.getX()*SQUARESIZE,start.getY()*SQUARESIZE,SQUARESIZE,SQUARESIZE);
     for(int i = 0;i<20;i++){
       for(int x = 0; x<18; x++){
         char working = map[i][x];
@@ -173,8 +175,10 @@ public class Map{
             rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
           }
           else{
-            fill(0);
-            rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+            if(working != 'x'){
+              fill(0);
+              rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+            }
           }
         }
       }
