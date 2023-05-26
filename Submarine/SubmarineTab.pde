@@ -37,8 +37,8 @@ public class Submarine {
   }
 
   public void changePos(int x, int y) {
-    char wall = Map.getAt(x, y);
-    if (wall = '#') {
+    char wall = layout.getAt(x,y);
+    if (wall == '#') {
     } else {
       positionX = x;
       positionY = y;
