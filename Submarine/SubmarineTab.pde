@@ -15,10 +15,7 @@ public class Submarine {
   }
 
   public void changePos(int x, int y) {
-    //for changing position
-    // if there is a space at this coordinate then change
-    // else stays the same
-    if ( = '#') {
+    if ( getAt(x, y) = '#') {
     } else {
       positionX = x;
       positionY = y;
@@ -30,17 +27,30 @@ public class Submarine {
     //quadrant 2: degrees 91-180
     //quadrant 3: degrees 181-270
     //quadrant 4: degrees 271-360
-    if(degrees <= 45){
-      changePos(getPosX(), getPosY()-1); 
+    if (degrees <= 45) {
+      changePos(getPosX(), getPosY()-1);
     }
-    /* 45 -> 90 is x+1, y-1
-      90 -> 135 is x+1.y
-      135->180 is x+1,y+1
-      181 -> 225 is x, y+1
-      225 -> 270 is x-1, y+1
-      271 -> 315 is x-1, y
-      316 -> 360 is x-1, y-1
-      */
+    else if(degrees <= 90){
+      changePos(getPosX() + 1, getPosY() - 1);
+    }
+    else if(degrees <= 135){
+      changePos(getPosX() + 1, getPosY());
+    }
+    else if(degrees <=180){
+      changePos(getPosX() + 1, getPosY() + 1);
+    }
+    else if(degrees <= 225){
+      changePos(getPosX(), getPosY() + 1);
+    }
+    else if(degrees <= 270){
+      changePos(getPosX() - 1, getPosY() + 1);
+    }
+    else if(degrees <= 315){
+      changePos(getPosX() - 1, getPosY());
+    }
+    else{
+      changePos(getPosX() - 1, getPosY() - 1);
+    }
   }
 
   void keyPressed() {
