@@ -29,26 +29,19 @@ public class Submarine {
     //quadrant 4: degrees 271-360
     if (degrees <= 45) {
       changePos(getPosX(), getPosY()-1);
-    }
-    else if(degrees <= 90){
+    } else if (degrees <= 90) {
       changePos(getPosX() + 1, getPosY() - 1);
-    }
-    else if(degrees <= 135){
+    } else if (degrees <= 135) {
       changePos(getPosX() + 1, getPosY());
-    }
-    else if(degrees <=180){
+    } else if (degrees <=180) {
       changePos(getPosX() + 1, getPosY() + 1);
-    }
-    else if(degrees <= 225){
+    } else if (degrees <= 225) {
       changePos(getPosX(), getPosY() + 1);
-    }
-    else if(degrees <= 270){
+    } else if (degrees <= 270) {
       changePos(getPosX() - 1, getPosY() + 1);
-    }
-    else if(degrees <= 315){
+    } else if (degrees <= 315) {
       changePos(getPosX() - 1, getPosY());
-    }
-    else{
+    } else {
       changePos(getPosX() - 1, getPosY() - 1);
     }
   }
@@ -64,13 +57,13 @@ public class Submarine {
         if (degrees < 0) {
           degrees = 0;
         }
-        //changePos(getPosX() - 1, getPosY());
-      } else {
-        //changePos(getPosX() + 1, getPosY());
+        calcDirection(degrees);
+      } else if(keyCode == RIGHT) {
         degrees++;
         if (degrees > 360) {
           degrees = 0;
         }
+        calcDirection(degrees);
       }
     }
   }
