@@ -74,20 +74,24 @@ void draw() {
     else if (key == CODED) {
         if (keyCode == UP) {
           sub.calcForward(sub.getDeg());
+          println("moving forward");
         } else if (keyCode == DOWN) {
           sub.calcBackward(sub.getDeg());
+          println("moving backward");
         } else if (keyCode == LEFT) {
           sub.changeDeg(sub.getDeg()- 1);
           if (sub.getDeg() < 0) {
             sub.changeDeg(0);
           }
           radar.rotate(radians(-1));
+          println("subtract degree - 1");
         } else if (keyCode == RIGHT) {
           sub.changeDeg(sub.getDeg() + 1);
           if (sub.getDeg() > 360) {
             sub.changeDeg(0);
           }
           radar.rotate(PI); //raidnas 1
+          println("add degree + 1");
         }
       }
   }
