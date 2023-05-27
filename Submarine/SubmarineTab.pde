@@ -1,7 +1,8 @@
 public class Submarine {
-  private int positionX, positionY, degrees, xMax, yMax; // set to a default value later maybe
-  xMax = 20;
-  yMax = 18;
+  private int positionX, positionY, degrees; // set to a default value later maybe
+  private static final int xMax = 20;
+  private static final int yMax = 18;
+  
   public int getPosX() {
     return positionX;
   }
