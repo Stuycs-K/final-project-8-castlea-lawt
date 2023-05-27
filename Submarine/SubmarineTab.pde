@@ -47,7 +47,7 @@ public class Submarine {
       changePos(getPosX() - 1, getPosY() + 1);
     } else if (degrees <= 315 && getPosX() > 0) {
       changePos(getPosX() - 1, getPosY());
-    } else if (degrees <= 360 && (getPosX() > 0 && getPosY() > 0)){
+    } else if (degrees <= 360 && (getPosX() > 0 && getPosY() > 0)) {
       changePos(getPosX() - 1, getPosY() - 1);
     }
   }
@@ -72,7 +72,7 @@ public class Submarine {
     }
   }
 
-  public void keyPressed() {
+  /*public void keyPressed() {
     //while (keyPressed) {
     if (key == CODED) {
       if (keyCode == UP) {
@@ -97,6 +97,6 @@ public class Submarine {
         println("turning right");
       }
     }
-  }
-  //}
+  }*/
+  
 }
