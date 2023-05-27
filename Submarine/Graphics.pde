@@ -72,8 +72,10 @@ void draw() {
       }
     }
     else if (key == CODED) {
-        if (keyCode == UP || keyCode == DOWN) {
-          sub.calcDirection(sub.getDeg());
+        if (keyCode == UP) {
+          sub.calcForward(sub.getDeg());
+        } else if (keyCode == DOWN) {
+          sub.calcBackward(sub.getDeg());
         } else if (keyCode == LEFT) {
           sub.changeDeg(sub.getDeg()- 1);
           if (sub.getDeg() < 0) {
