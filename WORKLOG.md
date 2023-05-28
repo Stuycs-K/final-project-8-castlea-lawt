@@ -42,6 +42,12 @@ Submarine_Tab://Made getDeg() Function
 
 Graphics_Tab: //Changed so that left and right only alters degree, and then use up and down to move
 
+### 5/27/23
+Submarine_Tab: //Made constant variables yMax and xMax for the row and col length of the Map
+               //Set bounds for the changeDirec() functions
+
+Graphics_Tab: //Integrated changeDirec() function from Submarine_Tab, preparing to test
+
 ## GROUP MEMBER 2 : Anabella Castle
 
 ### 5/22/23
