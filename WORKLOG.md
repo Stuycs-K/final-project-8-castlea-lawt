@@ -82,3 +82,14 @@ Map_Tab:  // made map arr public, some edits to display in process
           // more efficient carve method, added a for loop and a while loop to try and create different paths
 
 Graphics_Tab: // Added Map.display to setup
+
+### 5/26/13
+
+Submarine_Tab: // Fixed ChangePos by using the variable layout
+
+Map_Tab:  // Added a for loop that will put the tasks on the map display
+          // adjusted that for loop into an if statement by adding the tasks into the carve method, both ensuring that there will be a path to every task and making the drawing easier
+          // made a new color square for start spot, now have to figure out why not all of the coordinates are displaying
+          // added an if statement to see if that would help with displaying
+
+Graphics_Tab: // added values to task list
