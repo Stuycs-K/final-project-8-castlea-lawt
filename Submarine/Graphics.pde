@@ -6,6 +6,7 @@ String[]images = new String[]{"task1.png", "task2.jpg"}; //9 imgs will manually 
 PImage photo;
 boolean displayImg = false;
 Submarine sub = new Submarine(0, 0);
+int countdown = 0;
 
 void displayScreen() {
   background(100, 0, 0);
@@ -39,7 +40,7 @@ void displayScreen() {
 }
 
 void setup() {
-  fullScreen();
+  //fullScreen();
   displayScreen();
   layout = new Map(1);
   layout.display();
@@ -47,6 +48,9 @@ void setup() {
 
 void draw() {
   //tammy integrate the camera method here from progress
+  if(countdown > 0){
+   countdown--; 
+  }
   if (keyPressed) {
     if (key == 'p' || key == 'P') {
       if (displayImg) {
@@ -71,27 +75,32 @@ void draw() {
         }
       }
     }
-    else if (key == CODED) {
+    else if (key == CODED && countdown == 0) {
         if (keyCode == UP) {
+          countdown += 15;
           sub.calcForward(sub.getDeg());
           println("moving forward");
         } else if (keyCode == DOWN) {
+          countdown += 15;
           sub.calcBackward(sub.getDeg());
           println("moving backward");
         } else if (keyCode == LEFT) {
+          countdown += 15;
           sub.changeDeg(sub.getDeg()- 1);
           if (sub.getDeg() < 0) {
             sub.changeDeg(0);
           }
-          radar.rotate(radians(-1));
-          println("subtract degree - 1");
+          rotate(-PI/2);
+          println("subtract degree - 1, degree is now " + sub.getDeg());
         } else if (keyCode == RIGHT) {
+          countdown += 15;
           sub.changeDeg(sub.getDeg() + 1);
           if (sub.getDeg() > 360) {
             sub.changeDeg(0);
           }
-          radar.rotate(PI); //raidnas 1
-          println("add degree + 1");
+          //shape(radar);
+          rotate(PI/2); //raidnas 1
+          println("add degree + 1, degree is now " + sub.getDeg()  );
         }
       }
   }
