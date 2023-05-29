@@ -48,6 +48,11 @@ Submarine_Tab: //Made constant variables yMax and xMax for the row and col lengt
 
 Graphics_Tab: //Integrated changeDirec() function from Submarine_Tab, preparing to test
 
+### 5/28/23
+Graphics_Tab: //Made a countdown variable to add delay between pressing buttons, may need to make one for each individual button though?
+              //Small change to how the degrees changed, it can now go backwards from 0 to 360
+              //Experimenting and having trouble with rotating the PShape radar and on displaying text
+
 ## GROUP MEMBER 2 : Anabella Castle
 
 ### 5/22/23
