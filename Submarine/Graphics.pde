@@ -49,12 +49,12 @@ void setup() {
   radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
   displayScreen();
   layout = new Map(1);
-  layout.display();
 }
 
 void draw() {
   //tammy integrate the camera method here from progress
   displayScreen();
+  layout.display();
   if(countdown > 0){
    countdown--; 
   }
