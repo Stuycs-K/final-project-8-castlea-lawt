@@ -18,8 +18,6 @@ void displayScreen() {
   fill(50, 0, 0);
   ellipse(width/3, height/2+170, 200, 200);
   rect(width/3, height/2+310, 200, 75);
-  textSize(128);
-  text("" + sub.getDeg(),2*width/2, height/2+100); //supposed to be for git stgdisplaying degrees
   rect(2*width/3, height/2+100, 200, 75);
   rect(2*width/3, height/2+180, 200, 75);
   left = createShape(RECT, width/4+75, height/2+400, 170, 100);
@@ -41,10 +39,13 @@ void displayScreen() {
 }
 
 void setup() {
-  fullScreen();
-  //size(1200,1000); //for testing on tammy's computer because it is crap
+  //fullScreen();
+  size(1200,1000); //for testing on tammy's computer because it is crap
   radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
   displayScreen();
+  fill(155);
+  textSize(128);
+  text("bruhhh",2*width/2, height/2+100); //supposed to be for git stgdisplaying degrees
   layout = new Map(1);
   layout.display();
 }
@@ -94,7 +95,7 @@ void draw() {
           if (sub.getDeg() < 0) {
             sub.changeDeg(360);
           }
-          radar.rotateZ(-PI/3);
+          radar.rotate(-PI/3);
           println("subtract degree - 1, degree is now " + sub.getDeg());
         } else if (keyCode == RIGHT) {
           countdown += 15;
@@ -103,7 +104,7 @@ void draw() {
             sub.changeDeg(0);
           }
           //shape(radar);
-          radar.rotateZ(PI/3); //raidnas 1
+          radar.rotate(PI/3); //raidnas 1
           println("add degree + 1, degree is now " + sub.getDeg()  );
         }
       }
