@@ -45,7 +45,7 @@ void displayScreen() {
 
 void setup() {
   fullScreen();
-  //size(1200,1000); //for testing on tammy's computer because it is crap
+  fill(0,155,0);
   radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
   displayScreen();
   layout = new Map(1);
