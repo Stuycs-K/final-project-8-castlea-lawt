@@ -88,7 +88,7 @@ void draw() {
           countdown += 15;
           sub.changeDeg(sub.getDeg()- 1);
           if (sub.getDeg() < 0) {
-            sub.changeDeg(0);
+            sub.changeDeg(360);
           }
           rotate(-PI/2);
           println("subtract degree - 1, degree is now " + sub.getDeg());
