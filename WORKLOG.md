@@ -53,6 +53,14 @@ Graphics_Tab: //Made a countdown variable to add delay between pressing buttons,
               //Small change to how the degrees changed, it can now go backwards from 0 to 360
               //Experimenting and having trouble with rotating the PShape radar and on displaying text
 
+### 5/29/23
+Submarine_Tab: //Changed max degree from 360 to 359
+
+Graphics_Tab: //Made display for degrees and the coordinates of the Submarine
+              //Changed PShape radar to it's original color
+              //Temporarily removed delay between keypresses so easier to test
+              //Radar rotates every 45 degrees, backwards and forwards now
+
 ## GROUP MEMBER 2 : Anabella Castle
 
 ### 5/22/23
