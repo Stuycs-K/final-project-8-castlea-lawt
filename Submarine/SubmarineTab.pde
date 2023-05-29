@@ -48,7 +48,7 @@ public class Submarine {
       changePos(getPosX() - 1, getPosY() + 1);
     } else if (degrees <= 315 && getPosX() > 0) {
       changePos(getPosX() - 1, getPosY());
-    } else if (degrees <= 360 && (getPosX() > 0 && getPosY() > 0)) {
+    } else if (degrees <= 359 && (getPosX() > 0 && getPosY() > 0)) {
       changePos(getPosX() - 1, getPosY() - 1);
     }
   }
@@ -68,7 +68,7 @@ public class Submarine {
       changePos(getPosX() + 1, getPosY() - 1);
     } else if (degrees <= 315 && getPosX() < xMax - 1) {
       changePos(getPosX() + 1, getPosY());
-    } else if (degrees <= 360 && (getPosY() < yMax - 1 && getPosX() < xMax - 1)) {
+    } else if (degrees <= 359 && (getPosY() < yMax - 1 && getPosX() < xMax - 1)) {
       changePos(getPosX() + 1, getPosY() + 1);
     }
   }

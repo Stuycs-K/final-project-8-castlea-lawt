@@ -82,7 +82,7 @@ void draw() {
         }
       }
     }
-    else if (key == CODED && countdown == 0) {
+    else if (key == CODED) { // && countdown == 0
         if (keyCode == UP) {
           countdown += 15;
           sub.calcForward(sub.getDeg());
@@ -95,7 +95,7 @@ void draw() {
           countdown += 15;
           sub.changeDeg(sub.getDeg()- 1);
           if (sub.getDeg() < 0) {
-            sub.changeDeg(360);
+            sub.changeDeg(359);
           }
           if(sub.getDeg() % 45 == 0){
            radar.rotate(-PI/4); 
@@ -104,7 +104,7 @@ void draw() {
         } else if (keyCode == RIGHT) {
           countdown += 15;
           sub.changeDeg(sub.getDeg() + 1);
-          if (sub.getDeg() > 360) {
+          if (sub.getDeg() > 359) {
             sub.changeDeg(0);
           }
           if(sub.getDeg()%45==0){
