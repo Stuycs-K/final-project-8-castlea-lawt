@@ -31,8 +31,8 @@ void displayScreen() {
   fill(255);
   textSize(80);
   text("" + sub.getDeg(),width/4+70, height/2+340); //displaying degrees
-  text("x: " + sub.getPosX(), width/2 + 150, height/2 +125);
-  text("y: " + sub.getPosY(), width/2 + 150, height/2 +200);
+  text("x: " + sub.getPosX(), 2*width/3 - 95, height/2 +120);
+  text("y: " + sub.getPosY(), 2*width/3 - 95, height/2 +200);
   fill(100);
   stroke(0);
   triangle(width/4, height/2+400, width/3-10, height/2+450, width/3-10, height/2+350);
@@ -44,8 +44,8 @@ void displayScreen() {
 }
 
 void setup() {
-  //fullScreen();
-  size(1200,1000); //for testing on tammy's computer because it is crap
+  fullScreen();
+  //size(1200,1000); //for testing on tammy's computer because it is crap
   radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
   displayScreen();
   layout = new Map(1);
