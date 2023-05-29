@@ -28,6 +28,9 @@ void displayScreen() {
   shape(down);
   shape(left);
   shape(right);
+  fill(255);
+  textSize(80);
+  text("" + sub.getDeg(),width/4+70, height/2+340); //supposed to be for git stgdisplaying degrees
   fill(100);
   stroke(0);
   triangle(width/4, height/2+400, width/3-10, height/2+450, width/3-10, height/2+350);
@@ -43,9 +46,6 @@ void setup() {
   size(1200,1000); //for testing on tammy's computer because it is crap
   radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
   displayScreen();
-  fill(155);
-  textSize(128);
-  text("bruhhh",2*width/2, height/2+100); //supposed to be for git stgdisplaying degrees
   layout = new Map(1);
   layout.display();
 }
