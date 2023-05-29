@@ -30,7 +30,9 @@ void displayScreen() {
   shape(right);
   fill(255);
   textSize(80);
-  text("" + sub.getDeg(),width/4+70, height/2+340); //supposed to be for git stgdisplaying degrees
+  text("" + sub.getDeg(),width/4+70, height/2+340); //displaying degrees
+  text("x: " + sub.getPosX(), width/2 + 150, height/2 +125);
+  text("y: " + sub.getPosY(), width/2 + 150, height/2 +200);
   fill(100);
   stroke(0);
   triangle(width/4, height/2+400, width/3-10, height/2+450, width/3-10, height/2+350);
@@ -95,7 +97,9 @@ void draw() {
           if (sub.getDeg() < 0) {
             sub.changeDeg(360);
           }
-          radar.rotate(-PI/3);
+          if(sub.getDeg() % 45 == 0){
+           radar.rotate(-PI/4); 
+          }
           println("subtract degree - 1, degree is now " + sub.getDeg());
         } else if (keyCode == RIGHT) {
           countdown += 15;
@@ -103,8 +107,9 @@ void draw() {
           if (sub.getDeg() > 360) {
             sub.changeDeg(0);
           }
-          //shape(radar);
-          radar.rotate(PI/3); //raidnas 1
+          if(sub.getDeg()%45==0){
+            radar.rotate(PI/4);
+          }
           println("add degree + 1, degree is now " + sub.getDeg()  );
         }
       }
