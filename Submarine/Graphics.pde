@@ -6,6 +6,7 @@ String[]images = new String[]{"task1.png", "task2.jpg"}; //9 imgs will manually 
 PImage photo;
 boolean displayImg = false;
 Submarine sub = new Submarine(0, 0);
+int countdown = 0;
 
 
 void displayScreen() {
@@ -18,6 +19,8 @@ void displayScreen() {
   fill(50, 0, 0);
   ellipse(width/3, height/2+170, 200, 200);
   rect(width/3, height/2+310, 200, 75);
+  textSize(128);
+  text("" + sub.getDeg(),2*width/2, height/2+100); //supposed to be for git stgdisplaying degrees
   rect(2*width/3, height/2+100, 200, 75);
   rect(2*width/3, height/2+180, 200, 75);
   left = createShape(RECT, width/4+75, height/2+400, 170, 100);
@@ -35,7 +38,6 @@ void displayScreen() {
   triangle(2*width/3, height/2+225, 2*width/3+50, height/2+325, 2*width/3-50, height/2+325);
   triangle(2*width/3, height/2+425, 2*width/3+50, height/2+330, 2*width/3-50, height/2+330);
   fill(0, 155, 0);
-  radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
   shape(radar);
 }
 
@@ -50,6 +52,8 @@ void setup() {
   tasks.add(new Coordinate(2,14));
   tasks.add(new Coordinate(19,17));
   tasks.add(new Coordinate(1,10));
+  //size(1200,1000); //for testing on tammy's computer because it is crap
+  radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
   displayScreen();
   layout = new Map(1);
   layout.display();
@@ -57,6 +61,10 @@ void setup() {
 
 void draw() {
   //tammy integrate the camera method here from progress
+  displayScreen();
+  if(countdown > 0){
+   countdown--; 
+  }
   if (keyPressed) {
     if (key == 'p' || key == 'P') {
       if (displayImg) {
@@ -81,5 +89,33 @@ void draw() {
         }
       }
     }
+    else if (key == CODED && countdown == 0) {
+        if (keyCode == UP) {
+          countdown += 15;
+          sub.calcForward(sub.getDeg());
+          println("moving forward");
+        } else if (keyCode == DOWN) {
+          countdown += 15;
+          sub.calcBackward(sub.getDeg());
+          println("moving backward");
+        } else if (keyCode == LEFT) {
+          countdown += 15;
+          sub.changeDeg(sub.getDeg()- 1);
+          if (sub.getDeg() < 0) {
+            sub.changeDeg(360);
+          }
+          radar.rotateZ(-PI/3);
+          println("subtract degree - 1, degree is now " + sub.getDeg());
+        } else if (keyCode == RIGHT) {
+          countdown += 15;
+          sub.changeDeg(sub.getDeg() + 1);
+          if (sub.getDeg() > 360) {
+            sub.changeDeg(0);
+          }
+          //shape(radar);
+          radar.rotateZ(PI/3); //raidnas 1
+          println("add degree + 1, degree is now " + sub.getDeg()  );
+        }
+      }
   }
 }
