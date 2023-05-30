@@ -30,10 +30,36 @@ Graphics_Tab: // Removed rightLoco and replaced with boolean displayImg
               // Moved the Camera method into draw() which I made a keyPressed() for
 
 ### 5/25/23
-Submarine_Tab: // Altered the ChangePos() method, however still have issues accessing the map 
+Submarine_Tab: // Altered the ChangePos() method, however still have issues accessing the map
                // Finished calcdirection() method
                // Added degrees instance variable
                // Integrated the above two methods into keyPressed()
+
+### 5/26/23
+Submarine_Tab://Made getDeg() Function
+              //Made changeDeg() Function
+              //split changeDirec() function into a changeForward() and changeBackward() function, will add bounds later to avoid exception
+
+Graphics_Tab: //Changed so that left and right only alters degree, and then use up and down to move
+
+### 5/27/23
+Submarine_Tab: //Made constant variables yMax and xMax for the row and col length of the Map
+               //Set bounds for the changeDirec() functions
+
+Graphics_Tab: //Integrated changeDirec() function from Submarine_Tab, preparing to test
+
+### 5/28/23
+Graphics_Tab: //Made a countdown variable to add delay between pressing buttons, may need to make one for each individual button though?
+              //Small change to how the degrees changed, it can now go backwards from 0 to 360
+              //Experimenting and having trouble with rotating the PShape radar and on displaying text
+
+### 5/29/23
+Submarine_Tab: //Changed max degree from 360 to 359
+
+Graphics_Tab: //Made display for degrees and the coordinates of the Submarine
+              //Changed PShape radar to it's original color
+              //Temporarily removed delay between keypresses so easier to test
+              //Radar rotates every 45 degrees, backwards and forwards now
 
 ## GROUP MEMBER 2 : Anabella Castle
 
@@ -69,3 +95,18 @@ Map_Tab:  // made map arr public, some edits to display in process
           // more efficient carve method, added a for loop and a while loop to try and create different paths
 
 Graphics_Tab: // Added Map.display to setup
+
+### 5/26/13
+
+Submarine_Tab: // Fixed ChangePos by using the variable layout
+
+Map_Tab:  // Added a for loop that will put the tasks on the map display
+          // adjusted that for loop into an if statement by adding the tasks into the carve method, both ensuring that there will be a path to every task and making the drawing easier
+          // made a new color square for start spot, now have to figure out why not all of the coordinates are displaying
+          // added an if statement to see if that would help with displaying
+
+Graphics_Tab: // added values to task list
+
+### 5/30/23
+
+Map_Tab:  // Fixed the display so that it actually shows all of the tasks and the start position.
