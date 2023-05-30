@@ -2,13 +2,15 @@ public class Map {
   private char[][] map;
   private int mode, SQUARESIZE;
   private Coordinate start;
+  int randX = (int)(Math.random()*20);
+  int randY = (int)(Math.random()*18);
 
   public Map(int mo) {
     map = new char[20][18];
     mode = mo;
     SQUARESIZE = 30;
-    int randX = (int)(Math.random()*20);
-    int randY = (int)(Math.random()*18);
+    //int randX = (int)(Math.random()*20);
+    //int randY = (int)(Math.random()*18);
     start = new Coordinate(randX, randY);
     makeMap();
   }

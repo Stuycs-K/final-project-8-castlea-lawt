@@ -25,8 +25,10 @@ public class Submarine {
   }
 
   public void changePos(int x, int y) {
+    println("changing pos");
     char wall = layout.getAt(x, y);
     if (wall == '#') {
+      println("wall");
     } else {
       positionX = x;
       positionY = y;

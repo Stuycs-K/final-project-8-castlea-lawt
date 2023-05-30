@@ -5,7 +5,7 @@ ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? +
 String[]images = new String[]{"task1.png", "task2.jpg"}; //9 imgs will manually add names of images later on
 PImage photo;
 boolean displayImg = false;
-Submarine sub = new Submarine(0, 0);
+Submarine sub;
 int countdown = 0;
 
 
@@ -56,8 +56,9 @@ void setup() {
   tasks.add(new Coordinate(19,17));
   tasks.add(new Coordinate(1,10));
   radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
-  displayScreen();
   layout = new Map(1);
+  sub = new Submarine(layout.randX,layout.randY);
+  displayScreen();
 }
 
 void draw() {
@@ -95,11 +96,11 @@ void draw() {
         if (keyCode == UP) {
           countdown += 15;
           sub.calcForward(sub.getDeg());
-          println("moving forward");
+          println("moving forward x is " + sub.getPosX() + " y is " + sub.getPosY());
         } else if (keyCode == DOWN) {
           countdown += 15;
           sub.calcBackward(sub.getDeg());
-          println("moving backward");
+          println("moving backward x is " + sub.getPosX() + " y is " + sub.getPosY());
         } else if (keyCode == LEFT) {
           countdown += 15;
           sub.changeDeg(sub.getDeg()- 1);
