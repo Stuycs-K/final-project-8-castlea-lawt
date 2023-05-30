@@ -55,7 +55,13 @@ void setup() {
   tasks.add(new Coordinate(2,14));
   tasks.add(new Coordinate(19,17));
   tasks.add(new Coordinate(1,10));
-  radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
+  //radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
+  radar = createShape();
+  radar.beginShape();
+  radar.vertex(width/3, height/2+100);
+  radar.vertex(width/3-10, height/2+200);
+  radar.vertex(width/3+10, height/2+200);
+  radar.endShape(CLOSE);
   displayScreen();
   layout = new Map(1);
 }
@@ -107,7 +113,8 @@ void draw() {
             sub.changeDeg(359);
           }
           if(sub.getDeg() % 45 == 0){
-           radar.rotate(-PI/4); 
+           //radar.rotate(-PI/4); 
+           rotateLeft();
           }
           println("subtract degree - 1, degree is now " + sub.getDeg());
         } else if (keyCode == RIGHT) {
@@ -117,10 +124,23 @@ void draw() {
             sub.changeDeg(0);
           }
           if(sub.getDeg()%45==0){
-            radar.rotate(PI/4);
+            //radar.rotate(PI/4);
+            rotateRight();
           }
           println("add degree + 1, degree is now " + sub.getDeg()  );
         }
       }
   }
+}
+
+public void rotateRight(){
+   PVector vertex = radar.getVertex(0);
+   vertex.rotate(PI/4);
+   radar.setVertex(0,vertex);
+}
+
+public void rotateLeft(){
+   PVector vertex = radar.getVertex(0);
+   vertex.rotate(-PI/4);
+   radar.setVertex(0,vertex);
 }
