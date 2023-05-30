@@ -106,3 +106,7 @@ Map_Tab:  // Added a for loop that will put the tasks on the map display
           // added an if statement to see if that would help with displaying
 
 Graphics_Tab: // added values to task list
+
+### 5/30/23
+
+Map_Tab:  // Fixed the display so that it actually shows all of the tasks and the start position.
