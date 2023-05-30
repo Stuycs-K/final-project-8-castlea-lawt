@@ -174,9 +174,6 @@ public class Map {
                 rect(i*SQUARESIZE, x*SQUARESIZE, SQUARESIZE, SQUARESIZE);
               }
             }
-          } else {
-            fill(0, 50, 0);
-            rect(i*SQUARESIZE, x*SQUARESIZE, SQUARESIZE, SQUARESIZE);
           }
           else{
             fill(0,50,0);
