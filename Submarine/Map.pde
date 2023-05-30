@@ -165,11 +165,13 @@ public class Map {
                   map[i][x]='>'; //meant to be \, but that doesn't work as a char
                   fill(0, 50, 0);
                   triangle(i*SQUARESIZE, x*SQUARESIZE, i*SQUARESIZE+SQUARESIZE, x*SQUARESIZE, i*SQUARESIZE, x*SQUARESIZE+SQUARESIZE);
-                } else {
+                } 
+                else {
                   fill(0, 50, 0);
                   rect(i*SQUARESIZE, x*SQUARESIZE, SQUARESIZE, SQUARESIZE);
                 }
-              } else {
+              } 
+              else {
                 fill(0, 50, 0);
                 rect(i*SQUARESIZE, x*SQUARESIZE, SQUARESIZE, SQUARESIZE);
               }
