@@ -27,7 +27,9 @@ public class Map{
     for(int i = 0; i<2; i++){
       int x = (int)(Math.random()*20);
       int y = (int)(Math.random()*18);
-      map[x][y]=' ';
+      if(map[x][y]!='x'){
+        map[x][y]=' ';
+      }
       int z = 0;
       while(z<50){
         int rand = (int)(Math.random()*5)+1;
@@ -104,16 +106,24 @@ public class Map{
           break;
           default:
           if(x<map.length-1&&x>0&&y>0&&y<map[1].length-1){
-            map[x-1][y] = ' ';
-            map[x+1][y] = ' ';
-            map[x][y-1] = ' ';
-            map[x][y+1] = ' ';
+            if(map[x-1][y]=='#'){
+              map[x-1][y] = ' ';
+            }
+            if(map[x+1][y]=='#'){
+              map[x+1][y] = ' ';
+            }
+            if(map[x][y-1]=='#'){
+              map[x][y-1] = ' ';
+            }
+            if(map[x][y+1]=='#'){
+              map[x][y+1] = ' ';
+            }
             if(x<map.length-2){x+=2;}
             z++;
           }
           break;
         }
-        if(x!=tasks.get(i).getX()&&y!=tasks.get(i).getY()&&x!=start.getX()&&x!=start.getY()){
+        if(map[x][y]=='#'){
           map[x][y] = ' ';
         }
       }
