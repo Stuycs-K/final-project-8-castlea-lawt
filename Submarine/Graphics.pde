@@ -50,12 +50,12 @@ void setup() {
   fullScreen();
   tasks.add(new Coordinate(3,4));
   tasks.add(new Coordinate(15,16));
-  tasks.add(new Coordinate(12,17));
+  tasks.add(new Coordinate(12,16));
   tasks.add(new Coordinate(3,10));
   tasks.add(new Coordinate(10,6));
   tasks.add(new Coordinate(7,13));
   tasks.add(new Coordinate(2,14));
-  tasks.add(new Coordinate(19,17));
+  tasks.add(new Coordinate(18,16));
   tasks.add(new Coordinate(1,10));
   //radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
   radar = createShape();
