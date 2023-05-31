@@ -57,7 +57,7 @@ public class Map {
           x++;
           z++;
         }
-        break;
+        break; //
         case 3:
         if(y>1){
           y--;
