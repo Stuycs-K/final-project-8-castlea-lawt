@@ -7,6 +7,7 @@ PImage photo;
 boolean displayImg = false;
 Submarine sub;
 int countdown = 0;
+int flicker = 0;
 
 
 void displayScreen() {
@@ -31,7 +32,7 @@ void displayScreen() {
   shape(right);
   fill(255);
   textSize(80);
-  text("" + sub.getDeg(),width/4+70, height/2+340); //displaying degrees
+  text("" + sub.getDeg(), width/4+70, height/2+340); //displaying degrees
   text("x: " + sub.getPosX(), 2*width/3 - 95, height/2 +120);
   text("y: " + sub.getPosY(), 2*width/3 - 95, height/2 +200);
   fill(100);
@@ -46,27 +47,47 @@ void displayScreen() {
 
 void setup() {
   fullScreen();
-  tasks.add(new Coordinate(3,4));
-  tasks.add(new Coordinate(15,16));
-  tasks.add(new Coordinate(12,17));
-  tasks.add(new Coordinate(3,10));
-  tasks.add(new Coordinate(10,6));
-  tasks.add(new Coordinate(7,13));
-  tasks.add(new Coordinate(2,14));
-  tasks.add(new Coordinate(19,17));
-  tasks.add(new Coordinate(1,10));
+  tasks.add(new Coordinate(3, 4));
+  tasks.add(new Coordinate(15, 16));
+  tasks.add(new Coordinate(12, 17));
+  tasks.add(new Coordinate(3, 10));
+  tasks.add(new Coordinate(10, 6));
+  tasks.add(new Coordinate(7, 13));
+  tasks.add(new Coordinate(2, 14));
+  tasks.add(new Coordinate(19, 17));
+  tasks.add(new Coordinate(1, 10));
   radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
   layout = new Map(1);
-  sub = new Submarine(layout.randX,layout.randY);
+  sub = new Submarine(layout.randX, layout.randY);
   displayScreen();
 }
 
 void draw() {
-  //tammy integrate the camera method here from progress
   displayScreen();
   layout.display();
-  if(countdown > 0){
-   countdown--; 
+  if (flicker > 0) {
+    flicker--;
+  }//a4bab7
+  if (flicker == 0) {
+    fill(#EFF2C0);
+    //if (sub.getPosX() != sub.getXMax() - 1 && layout.getAt(sub.getPosX()+1, sub.getPosY()) == '#') {
+      //display blue dot to the right
+      circle(width/3 + 85,height/2 + 165,20);
+    //}
+      //else if (sub.getPosY() != sub.getYMax() - 1 && layout.getAt(sub.getPosX(), sub.getPosY() + 1) == '#') {
+      //display blue dot to thebottom
+      circle(width/3, height/2 + 250, 20);
+    //} else if (sub.getPosX() != 0 && layout.getAt(sub.getPosX() - 1, sub.getPosY()) == '#') {
+      //display blue dot to the left
+      circle(width/3 - 85, height/2 + 165, 20);
+    //} else if (sub.getPosY() != 0 && layout.getAt(sub.getPosX(), sub.getPosY() - 1) == '#') {
+      //display blue dot to the top
+      circle(width/3, height/2 + 90, 20);
+    //}
+    //flicker += 30;
+  }
+  if (countdown > 0) {
+    countdown--;
   }
   if (keyPressed) {
     if (key == 'p' || key == 'P') {
@@ -91,37 +112,36 @@ void draw() {
           displayScreen();
         }
       }
-    }
-    else if (key == CODED) { // && countdown == 0
-        if (keyCode == UP) {
-          countdown += 15;
-          sub.calcForward(sub.getDeg());
-          println("moving forward x is " + sub.getPosX() + " y is " + sub.getPosY());
-        } else if (keyCode == DOWN) {
-          countdown += 15;
-          sub.calcBackward(sub.getDeg());
-          println("moving backward x is " + sub.getPosX() + " y is " + sub.getPosY());
-        } else if (keyCode == LEFT) {
-          countdown += 15;
-          sub.changeDeg(sub.getDeg()- 1);
-          if (sub.getDeg() < 0) {
-            sub.changeDeg(359);
-          }
-          if(sub.getDeg() % 45 == 0){
-           radar.rotate(-PI/4); 
-          }
-          println("subtract degree - 1, degree is now " + sub.getDeg());
-        } else if (keyCode == RIGHT) {
-          countdown += 15;
-          sub.changeDeg(sub.getDeg() + 1);
-          if (sub.getDeg() > 359) {
-            sub.changeDeg(0);
-          }
-          if(sub.getDeg()%45==0){
-            radar.rotate(PI/4);
-          }
-          println("add degree + 1, degree is now " + sub.getDeg()  );
+    } else if (key == CODED && countdown == 0) { // && countdown == 0
+      if (keyCode == UP) {
+        countdown += 10;
+        sub.calcForward(sub.getDeg());
+        println("moving forward x is " + sub.getPosX() + " y is " + sub.getPosY());
+      } else if (keyCode == DOWN) {
+        countdown += 10;
+        sub.calcBackward(sub.getDeg());
+        println("moving backward x is " + sub.getPosX() + " y is " + sub.getPosY());
+      } else if (keyCode == LEFT) {
+        countdown += 10;
+        sub.changeDeg(sub.getDeg()- 1);
+        if (sub.getDeg() < 0) {
+          sub.changeDeg(359);
         }
+        if (sub.getDeg() % 45 == 0) {
+          radar.rotate(-PI/4);
+        }
+        println("subtract degree - 1, degree is now " + sub.getDeg());
+      } else if (keyCode == RIGHT) {
+        countdown += 10;
+        sub.changeDeg(sub.getDeg() + 1);
+        if (sub.getDeg() > 359) {
+          sub.changeDeg(0);
+        }
+        if (sub.getDeg()%45==0) {
+          radar.rotate(PI/4);
+        }
+        println("add degree + 1, degree is now " + sub.getDeg()  );
       }
+    }
   }
 }

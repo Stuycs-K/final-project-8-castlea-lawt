@@ -3,6 +3,14 @@ public class Submarine {
   private static final int xMax = 20;
   private static final int yMax = 18;
   
+  public int getXMax(){
+   return xMax; 
+  }
+  
+  public int getYMax(){
+    return yMax;
+  }
+  
   public int getPosX() {
     return positionX;
   }
