@@ -61,6 +61,13 @@ Graphics_Tab: //Made display for degrees and the coordinates of the Submarine
               //Temporarily removed delay between keypresses so easier to test
               //Radar rotates every 45 degrees, backwards and forwards now
 
+### 5/30/23
+Submarine_Tab: //Added get YMax and get xMax methods
+
+Graphics_Tab: //Set location of Submarine to the start location so now it can actually move
+              //Made wall indicators that flicker every 30 seconds or so when there is a wall on the 4 sides(might add for the corners as well)
+              //When there is no task at spot, error msg shows up
+
 ## GROUP MEMBER 2 : Anabella Castle
 
 ### 5/22/23
