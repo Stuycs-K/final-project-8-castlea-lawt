@@ -2,8 +2,8 @@ public class Map {
   private char[][] map;
   private int mode, SQUARESIZE;
   private Coordinate start;
-  int randX = (int)(Math.random()*20);
-  int randY = (int)(Math.random()*18);
+  int randX = (int)(Math.random()*19)+1;
+  int randY = (int)(Math.random()*17)+1;
 
   public Map(int mo) {
     map = new char[20][18];
@@ -25,111 +25,72 @@ public class Map {
         map[i][x] = '#';
       }
     }
-    map[start.getX()][start.getY()] = 'x';
+    carve(start,2);
     for(int i = 0; i<2; i++){
-      int x = (int)(Math.random()*20);
-      int y = (int)(Math.random()*18);
-      if(map[x][y]!='x'){
-        map[x][y]=' ';
-      }
-      int z = 0;
-      while (z<50) {
-        int rand = (int)(Math.random()*5)+1;
-        switch(rand) {
-        case 1:
-          if (x>0) {
-            x--;
-            z++;
-          }
-          break;
-        case 2:
-          if (x<map.length-1) {
-            x++;
-            z++;
-          }
-          break;
-        case 3:
-          if (y>0) {
-            y--;
-            z++;
-          }
-          break;
-        case 4:
-          if (y<map[1].length-1) {
-            y++;
-            z++;
-          }
-          break;
-        default:
-          if (x<map.length-1&&x>0&&y>0&&y<map[1].length-1) {
-            map[x-1][y] = ' ';
-            map[x+1][y] = ' ';
-            map[x][y-1] = ' ';
-            map[x][y+1] = ' ';
-            if (x<map.length-2) {
-              x+=2;
-            }
-            z++;
-          }
-          break;
-        }
-        map[x][y] = ' ';
-      }
+      int x = (int)(Math.random()*19)+1;
+      int y = (int)(Math.random()*17)+1;
+      carve(new Coordinate(x,y),0);
     }
     for(int i = 0; i<tasks.size(); i++){
-      int x = tasks.get(i).getX();
-      int y = tasks.get(i).getY();
-      map[x][y]='*';
-      int z = 0;
-      while(z<50){
-        int rand = (int)(Math.random()*5)+1;
-        switch(rand){
-          case 1:
-          if(x>0){
-            x--;
-            z++;
-          }
-          break;
-          case 2:
-          if(x<map.length-1){
-            x++;
-            z++;
-          }
-          break;
-          case 3:
-          if(y>0){
-            y--;
-            z++;
-          }
-          break;
-          case 4:
-          if(y<map[1].length-1){
-            y++;
-            z++;
-          }
-          break;
-          default:
-          if(x<map.length-1&&x>0&&y>0&&y<map[1].length-1){
-            if(map[x-1][y]=='#'){
-              map[x-1][y] = ' ';
-            }
-            if(map[x+1][y]=='#'){
-              map[x+1][y] = ' ';
-            }
-            if(map[x][y-1]=='#'){
-              map[x][y-1] = ' ';
-            }
-            if(map[x][y+1]=='#'){
-              map[x][y+1] = ' ';
-            }
-            if(x<map.length-2){x+=2;}
-            z++;
-          }
-          break;
+      carve(tasks.get(i),1);
+    }
+  }
+  
+  public void carve(Coordinate startSpot, int special){
+    int x = startSpot.getX();
+    int y = startSpot.getY();
+    if(special == 0){map[x][y]=' ';}
+    if(special == 1){map[x][y]='*';}
+    if(special == 2){map[x][y]='x';}
+    int z = 0;
+    while(z<50){
+      int rand = (int)(Math.random()*5)+1;
+      switch(rand){
+        case 1:
+        if(x>1){
+          x--;
+          z++;
         }
-        if(map[x][y]=='#'){
-          map[x][y] = ' ';
+        break;
+        case 2:
+        if(x<map.length-2){
+          x++;
+          z++;
         }
+        break;
+        case 3:
+        if(y>1){
+          y--;
+          z++;
+        }
+        break;
+        case 4:
+        if(y<map[1].length-2){
+          y++;
+          z++;
+        }
+        break;
+        default:
+        if(x<map.length-2&&x>1&&y>1&&y<map[1].length-2){
+          if(map[x-1][y]=='#'){
+            map[x-1][y] = ' ';
+          }
+          if(map[x+1][y]=='#'){
+            map[x+1][y] = ' ';
+          }
+          if(map[x][y-1]=='#'){
+            map[x][y-1] = ' ';
+          }
+          if(map[x][y+1]=='#'){
+            map[x][y+1] = ' ';
+          }
+          if(x<map.length-3){x+=2;}
+          z++;
+        }
+        break;
+      }
+      if(map[x][y]=='#'){
+        map[x][y] = ' ';
       }
     }
   }
