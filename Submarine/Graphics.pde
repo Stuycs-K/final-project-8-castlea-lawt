@@ -67,24 +67,26 @@ void draw() {
   layout.display();
   if (flicker > 0) {
     flicker--;
-  }//a4bab7
+  }
   if (flicker == 0) {
     fill(#EFF2C0);
-    //if (sub.getPosX() != sub.getXMax() - 1 && layout.getAt(sub.getPosX()+1, sub.getPosY()) == '#') {
-      //display blue dot to the right
-      circle(width/3 + 85,height/2 + 165,20);
-    //}
-      //else if (sub.getPosY() != sub.getYMax() - 1 && layout.getAt(sub.getPosX(), sub.getPosY() + 1) == '#') {
-      //display blue dot to thebottom
+    if (sub.getPosX() != sub.getXMax() - 1 && layout.getAt(sub.getPosX()+1, sub.getPosY()) == '#') {
+      println("display blue dot to the right");
+      circle(width/3 + 85, height/2 + 165, 20);
+    }
+    if (sub.getPosY() != sub.getYMax() - 1 && layout.getAt(sub.getPosX(), sub.getPosY() + 1) == '#') {
+      println("display blue dot to thebottom");
       circle(width/3, height/2 + 250, 20);
-    //} else if (sub.getPosX() != 0 && layout.getAt(sub.getPosX() - 1, sub.getPosY()) == '#') {
-      //display blue dot to the left
+    }
+    if (sub.getPosX() != 0 && layout.getAt(sub.getPosX() - 1, sub.getPosY()) == '#') {
+      println("display blue dot to the left");
       circle(width/3 - 85, height/2 + 165, 20);
-    //} else if (sub.getPosY() != 0 && layout.getAt(sub.getPosX(), sub.getPosY() - 1) == '#') {
-      //display blue dot to the top
+    }
+    if (sub.getPosY() != 0 && layout.getAt(sub.getPosX(), sub.getPosY() - 1) == '#') {
+      println("display blue dot to the top");
       circle(width/3, height/2 + 90, 20);
-    //}
-    //flicker += 30;
+    }
+    flicker += 30;
   }
   if (countdown > 0) {
     countdown--;
