@@ -1,10 +1,11 @@
-PShape left, right, up, down, radar;
+PShape left, right, up, down, radar, subShape;
 Map layout;
 ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
 //int taskCounter = 0;
 String[]images = new String[]{"task1.png", "task2.jpg", "task3.jpg", "task4.jpg", "task5.jpg", "task6.jpg", "task7.jpg", "task8.jpg", "task9.jpg"}; //9 imgs will manually add names of images later on
 PImage photo;
 boolean displayImg = false;
+boolean cheat = false;
 Submarine sub;
 int countdown = 0;
 int flicker = 0;
@@ -65,8 +66,11 @@ void setup() {
   radar.vertex(width/3-10, height/2+200);
   radar.vertex(width/3+10, height/2+200);
   radar.endShape(CLOSE);
-  layout = new Map(1);
+  layout = new Map();
   sub = new Submarine(layout.randX, layout.randY);
+  shapeMode(CENTER);
+  subShape = createShape(RECT, sub.getPosX(), sub.getPosY(),5,5);
+  shapeMode(CORNER);
   println(" " + layout.randX  + " " + layout.randY);
   displayScreen();
 }
@@ -203,6 +207,9 @@ void draw() {
           println("add degree + 1, degree is now " + sub.getDeg()  );
         }
       }
+      else if (keyCode == 'Q'||keyCode=='q') {
+      cheat = !cheat;
+    }
   }
 }
 
