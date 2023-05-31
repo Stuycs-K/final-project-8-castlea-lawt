@@ -2,7 +2,7 @@ PShape left, right, up, down, radar;
 Map layout;
 ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
 //int taskCounter = 0;
-String[]images = new String[]{"task1.png", "task2.jpg"}; //9 imgs will manually add names of images later on
+String[]images = new String[]{"task1.png", "task2.jpg", "task3.jpg", "task4.jpg", "task5.jpg", "task6.jpg", "task7.jpg", "task8.jpg", "task9.jpg"}; //9 imgs will manually add names of images later on
 PImage photo;
 boolean displayImg = false;
 Submarine sub;
@@ -71,19 +71,15 @@ void draw() {
   if (flicker == 0) {
     fill(#EFF2C0);
     if (sub.getPosX() != sub.getXMax() - 1 && layout.getAt(sub.getPosX()+1, sub.getPosY()) == '#') {
-      println("display blue dot to the right");
       circle(width/3 + 85, height/2 + 165, 20);
     }
     if (sub.getPosY() != sub.getYMax() - 1 && layout.getAt(sub.getPosX(), sub.getPosY() + 1) == '#') {
-      println("display blue dot to thebottom");
       circle(width/3, height/2 + 250, 20);
     }
     if (sub.getPosX() != 0 && layout.getAt(sub.getPosX() - 1, sub.getPosY()) == '#') {
-      println("display blue dot to the left");
       circle(width/3 - 85, height/2 + 165, 20);
     }
     if (sub.getPosY() != 0 && layout.getAt(sub.getPosX(), sub.getPosY() - 1) == '#') {
-      println("display blue dot to the top");
       circle(width/3, height/2 + 90, 20);
     }
     flicker += 30;
@@ -99,19 +95,21 @@ void draw() {
       } else {
         for (int i = 0; i < tasks.size(); i++) {
           if (sub.getPosX() == tasks.get(i).getX() && sub.getPosY()== tasks.get(i).getY()) {
+            println("image got");
             loadImage(images[i]);
             photo = loadImage(images[i]);
-            image(photo, width/2, height/2, 10, 10);
+            image(photo, width/2, height/2, width/2, height/2);
             displayImg = true;
             break;
           }
         }
         if (!displayImg) {
-          fill(255);
-          textSize(50);
-          text("Not a task location. Try again.", height/2, width/2, 10, 10); // width and then height of txt box
-          delay(5000);
-          displayScreen();
+          fill(255, 0, 0);
+          textSize(75);
+          println("no img");
+          text("Not a task location. Try again.", height/2 + 230, width/2 -780, 350, 500); // width and then height of txt box
+          //delay(5000);
+          //displayScreen();
         }
       }
     } else if (key == CODED && countdown == 0) { // && countdown == 0
