@@ -32,6 +32,7 @@ void displayScreen() {
   shape(right);
   fill(255);
   textSize(80);
+  println("bruh");
   text("" + sub.getDeg(), width/4+70, height/2+340); //displaying degrees
   text("x: " + sub.getPosX(), 2*width/3 - 95, height/2 +120);
   text("y: " + sub.getPosY(), 2*width/3 - 95, height/2 +200);
@@ -63,9 +64,9 @@ void setup() {
   radar.vertex(width/3-10, height/2+200);
   radar.vertex(width/3+10, height/2+200);
   radar.endShape(CLOSE);
-  displayScreen();
   layout = new Map(1);
   sub = new Submarine(layout.randX, layout.randY);
+  println(" " + layout.randX  + " " + layout.randY);
   displayScreen();
 }
 
@@ -78,18 +79,19 @@ void draw() {
   if (flicker == 0) {
     fill(#EFF2C0);
     if (sub.getPosX() != sub.getXMax() - 1 && layout.getAt(sub.getPosX()+1, sub.getPosY()) == '#') {
-      circle(width/3 + 85, height/2 + 165, 20);
+      circle(width/3 + 85, height/2 + 165, 20); //right
     }
     if (sub.getPosY() != sub.getYMax() - 1 && layout.getAt(sub.getPosX(), sub.getPosY() + 1) == '#') {
-      circle(width/3, height/2 + 250, 20);
+      circle(width/3, height/2 + 250, 20); // down
     }
     if (sub.getPosX() != 0 && layout.getAt(sub.getPosX() - 1, sub.getPosY()) == '#') {
-      circle(width/3 - 85, height/2 + 165, 20);
+      circle(width/3 - 85, height/2 + 165, 20); //left
     }
     if (sub.getPosY() != 0 && layout.getAt(sub.getPosX(), sub.getPosY() - 1) == '#') {
-      circle(width/3, height/2 + 90, 20);
+      circle(width/3, height/2 + 90, 20); //  top
     }
-    flicker += 30;
+    //
+    flicker += 60;
   }
   if (countdown > 0) {
     countdown--;
