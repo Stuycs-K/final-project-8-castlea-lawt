@@ -117,3 +117,5 @@ Graphics_Tab: // added values to task list
 ### 5/30/23
 
 Map_Tab:  // Fixed the display so that it actually shows all of the tasks and the start position.
+
+Graphics_Tab // Added a rotateRight and rotateLeft function that correctly rotates the radar.
