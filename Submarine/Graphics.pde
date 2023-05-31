@@ -134,13 +134,31 @@ void draw() {
 }
 
 public void rotateRight(){
-   PVector vertex = radar.getVertex(0);
-   vertex.rotate(PI/4);
-   radar.setVertex(0,vertex);
+  for(int i = 0; i<radar.getVertexCount(); i++){
+   PVector vertex = radar.getVertex(i);
+   float originalX = vertex.x-(width/3);
+   float originalY = vertex.y-(height/2+150);
+   float rotateAroundX = vertex.x-(width/3);
+   float rotateAroundY = vertex.y-(height/2+150);
+   vertex.set(vertex.x-rotateAroundX,vertex.y-rotateAroundY);
+   rotateAroundX = originalX * cos(PI/4) - originalY * sin(PI/4);
+   rotateAroundY = originalX * sin(PI/4) + originalY * cos(PI/4);
+   vertex.set(vertex.x+rotateAroundX,vertex.y+rotateAroundY);
+   radar.setVertex(i,vertex);
+  }
 }
 
 public void rotateLeft(){
-   PVector vertex = radar.getVertex(0);
-   vertex.rotate(-PI/4);
-   radar.setVertex(0,vertex);
+   for(int i = 0; i<radar.getVertexCount(); i++){
+   PVector vertex = radar.getVertex(i);
+   float originalX = vertex.x-(width/3);
+   float originalY = vertex.y-(height/2+150);
+   float rotateAroundX = vertex.x-(width/3);
+   float rotateAroundY = vertex.y-(height/2+150);
+   vertex.set(vertex.x-rotateAroundX,vertex.y-rotateAroundY);
+   rotateAroundX = originalX * cos(-PI/4) - originalY * sin(-PI/4);
+   rotateAroundY = originalX * sin(-PI/4) + originalY * cos(-PI/4);
+   vertex.set(vertex.x+rotateAroundX,vertex.y+rotateAroundY);
+   radar.setVertex(i,vertex);
+  }
 }
