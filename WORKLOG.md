@@ -119,3 +119,10 @@ Graphics_Tab: // added values to task list
 Map_Tab:  // Fixed the display so that it actually shows all of the tasks and the start position.
 
 Graphics_Tab // Added a rotateRight and rotateLeft function that correctly rotates the radar.
+
+### 5/31/23
+
+Map_Tab:  // Made a new method for carving to make the code easier to parse through
+          // edited carve code to incorporate a solid border around the edge of the Map
+
+Graphics_Tab: // edited tasks to make sure they don't impede on the border
