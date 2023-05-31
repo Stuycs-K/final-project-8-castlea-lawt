@@ -1,13 +1,12 @@
 public class Map {
   private char[][] map;
-  private int mode, SQUARESIZE;
+  private int SQUARESIZE;
   private Coordinate start;
   int randX = (int)(Math.random()*19)+1;
   int randY = (int)(Math.random()*17)+1;
 
-  public Map(int mo) {
+  public Map() {
     map = new char[20][18];
-    mode = mo;
     SQUARESIZE = 30;
     //int randX = (int)(Math.random()*20);
     //int randY = (int)(Math.random()*18);
@@ -95,16 +94,11 @@ public class Map {
     }
   }
 
-  void mouseClicked() {
-    if (mode == 1) {
-      display();
+  public void display(){
+    if(cheat){
+      fill(0);
+      shape(subShape);
     }
-    if (mode == 2) {
-      cheatDisplay();
-    }
-  }
-
-   public void display(){
     noStroke();
     rectMode(CORNER);
     fill(0,0,150);
@@ -160,7 +154,5 @@ public class Map {
         }
       }
     }
-  }
-  public void cheatDisplay() {
   }
 }
