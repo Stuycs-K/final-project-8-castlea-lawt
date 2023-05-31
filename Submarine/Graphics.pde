@@ -8,6 +8,7 @@ boolean displayImg = false;
 Submarine sub;
 int countdown = 0;
 int flicker = 0;
+boolean flickMode = false;
 
 
 void displayScreen() {
@@ -32,7 +33,6 @@ void displayScreen() {
   shape(right);
   fill(255);
   textSize(80);
-  println("bruh");
   text("" + sub.getDeg(), width/4+70, height/2+340); //displaying degrees
   text("x: " + sub.getPosX(), 2*width/3 - 95, height/2 +120);
   text("y: " + sub.getPosY(), 2*width/3 - 95, height/2 +200);
@@ -47,6 +47,7 @@ void displayScreen() {
 }
 
 void setup() {
+  //load img and resize here
   fullScreen();
   tasks.add(new Coordinate(3,4));
   tasks.add(new Coordinate(15,16));
@@ -90,7 +91,19 @@ void draw() {
     if (sub.getPosY() != 0 && layout.getAt(sub.getPosX(), sub.getPosY() - 1) == '#') {
       circle(width/3, height/2 + 90, 20); //  top
     }
-    //
+    if ((sub.getPosY() != 0 && sub.getPosX() != 0) && (layout.getAt(sub.getPosX() - 1, sub.getPosY() - 1) == '#')){
+     circle(width/3 - 63, height/2 + 115, 20); // upper left
+    }
+    if((sub.getPosY() != sub.getYMax() - 1 && sub.getPosX() != sub.getXMax() - 1) && (layout.getAt(sub.getPosX() + 1, sub.getPosY() + 1) == '#')){
+      circle(width/3 + 60, height/2 + 230, 20); //bottom right
+    }
+    if((sub.getPosY() != 0 && sub.getPosX() != sub.getXMax() - 1) && (layout.getAt(sub.getPosX() + 1, sub.getPosY()-1) == '#')){
+      circle(width/3 + 65, height/2 + 115, 20); //upper right
+    }
+    if((sub.getPosX() != 0 && sub.getPosY() != sub.getYMax() - 1) && (layout.getAt(sub.getPosX() - 1, sub.getPosY() + 1) == '#')){
+     circle(width/3- 63, height/2+230, 20);  //bottom left 
+    }
+    if(flickMode){
     flicker += 60;
   }
   if (countdown > 0) {
@@ -121,7 +134,12 @@ void draw() {
           //displayScreen();
         }
       }
-    } else if (key == CODED && countdown == 0) { // && countdown == 0
+    }
+    else if(key == 'f' || key == 'F'){
+      flickMode = !flickMode;
+    }
+    }
+      else if (key == CODED && countdown == 0) { // && countdown == 0
       if (keyCode == UP) {
         countdown += 10;
         sub.calcForward(sub.getDeg());
