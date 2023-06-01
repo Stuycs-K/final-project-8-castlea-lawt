@@ -49,15 +49,15 @@ void displayScreen() {
 void setup() {
   //load img and resize here
   fullScreen();
-  tasks.add(new Coordinate(3,4));
-  tasks.add(new Coordinate(15,16));
-  tasks.add(new Coordinate(12,16));
-  tasks.add(new Coordinate(3,10));
-  tasks.add(new Coordinate(10,6));
-  tasks.add(new Coordinate(7,13));
-  tasks.add(new Coordinate(2,14));
-  tasks.add(new Coordinate(18,16));
-  tasks.add(new Coordinate(1,10));
+  tasks.add(new Coordinate(3, 4));
+  tasks.add(new Coordinate(15, 16));
+  tasks.add(new Coordinate(12, 16));
+  tasks.add(new Coordinate(3, 10));
+  tasks.add(new Coordinate(10, 6));
+  tasks.add(new Coordinate(7, 13));
+  tasks.add(new Coordinate(2, 14));
+  tasks.add(new Coordinate(18, 16));
+  tasks.add(new Coordinate(1, 10));
   //radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
   radar = createShape();
   radar.beginShape();
@@ -91,21 +91,23 @@ void draw() {
     if (sub.getPosY() != 0 && layout.getAt(sub.getPosX(), sub.getPosY() - 1) == '#') {
       circle(width/3, height/2 + 90, 20); //  top
     }
-    if ((sub.getPosY() != 0 && sub.getPosX() != 0) && (layout.getAt(sub.getPosX() - 1, sub.getPosY() - 1) == '#')){
-     circle(width/3 - 63, height/2 + 115, 20); // upper left
+    if ((sub.getPosY() != 0 && sub.getPosX() != 0) && (layout.getAt(sub.getPosX() - 1, sub.getPosY() - 1) == '#')) {
+      circle(width/3 - 63, height/2 + 115, 20); // upper left
     }
-    if((sub.getPosY() != sub.getYMax() - 1 && sub.getPosX() != sub.getXMax() - 1) && (layout.getAt(sub.getPosX() + 1, sub.getPosY() + 1) == '#')){
+    if ((sub.getPosY() != sub.getYMax() - 1 && sub.getPosX() != sub.getXMax() - 1) && (layout.getAt(sub.getPosX() + 1, sub.getPosY() + 1) == '#')) {
       circle(width/3 + 60, height/2 + 230, 20); //bottom right
     }
-    if((sub.getPosY() != 0 && sub.getPosX() != sub.getXMax() - 1) && (layout.getAt(sub.getPosX() + 1, sub.getPosY()-1) == '#')){
+    if ((sub.getPosY() != 0 && sub.getPosX() != sub.getXMax() - 1) && (layout.getAt(sub.getPosX() + 1, sub.getPosY()-1) == '#')) {
       circle(width/3 + 65, height/2 + 115, 20); //upper right
     }
-    if((sub.getPosX() != 0 && sub.getPosY() != sub.getYMax() - 1) && (layout.getAt(sub.getPosX() - 1, sub.getPosY() + 1) == '#')){
-     circle(width/3- 63, height/2+230, 20);  //bottom left 
+    if ((sub.getPosX() != 0 && sub.getPosY() != sub.getYMax() - 1) && (layout.getAt(sub.getPosX() - 1, sub.getPosY() + 1) == '#')) {
+      circle(width/3- 63, height/2+230, 20);  //bottom left
     }
-    if(flickMode){
-    flicker += 60;
+    if (flickMode) {
+      flicker += 60;
+    }
   }
+
   if (countdown > 0) {
     countdown--;
   }
@@ -134,20 +136,17 @@ void draw() {
           //displayScreen();
         }
       }
-    }
-    else if(key == 'f' || key == 'F'){
+    } else if (key == 'f' || key == 'F') {
       flickMode = !flickMode;
-    }
-    }
-      else if (key == CODED && countdown == 0) { // && countdown == 0
+    } else if (key == CODED) { // && countdown == 0
       if (keyCode == UP) {
         countdown += 10;
         sub.calcForward(sub.getDeg());
-        println("moving forward x is " + sub.getPosX() + " y is " + sub.getPosY());
+        println("moving forward");
       } else if (keyCode == DOWN) {
         countdown += 10;
         sub.calcBackward(sub.getDeg());
-        println("moving backward x is " + sub.getPosX() + " y is " + sub.getPosY());
+        println("moving backward");
       } else if (keyCode == LEFT) {
         countdown += 10;
         sub.changeDeg(sub.getDeg()- 1);
@@ -155,7 +154,8 @@ void draw() {
           sub.changeDeg(359);
         }
         if (sub.getDeg() % 45 == 0) {
-          radar.rotate(-PI/4);
+          //radar.rotate(-PI/4);
+          rotateLeft();
         }
         println("subtract degree - 1, degree is now " + sub.getDeg());
       } else if (keyCode == RIGHT) {
@@ -165,73 +165,41 @@ void draw() {
           sub.changeDeg(0);
         }
         if (sub.getDeg()%45==0) {
-          radar.rotate(PI/4);
+          //radar.rotate(PI/4);
+          rotateRight();
         }
         println("add degree + 1, degree is now " + sub.getDeg()  );
       }
     }
-    else if (key == CODED) { // && countdown == 0
-        if (keyCode == UP) {
-          countdown += 15;
-          sub.calcForward(sub.getDeg());
-          println("moving forward");
-        } else if (keyCode == DOWN) {
-          countdown += 15;
-          sub.calcBackward(sub.getDeg());
-          println("moving backward");
-        } else if (keyCode == LEFT) {
-          countdown += 15;
-          sub.changeDeg(sub.getDeg()- 1);
-          if (sub.getDeg() < 0) {
-            sub.changeDeg(359);
-          }
-          if(sub.getDeg() % 45 == 0){
-           //radar.rotate(-PI/4); 
-           rotateLeft();
-          }
-          println("subtract degree - 1, degree is now " + sub.getDeg());
-        } else if (keyCode == RIGHT) {
-          countdown += 15;
-          sub.changeDeg(sub.getDeg() + 1);
-          if (sub.getDeg() > 359) {
-            sub.changeDeg(0);
-          }
-          if(sub.getDeg()%45==0){
-            //radar.rotate(PI/4);
-            rotateRight();
-          }
-          println("add degree + 1, degree is now " + sub.getDeg()  );
-        }
-      }
   }
 }
 
-public void rotateRight(){
-  for(int i = 0; i<radar.getVertexCount(); i++){
-   PVector vertex = radar.getVertex(i);
-   float originalX = vertex.x-(width/3);
-   float originalY = vertex.y-(height/2+150);
-   float rotateAroundX = vertex.x-(width/3);
-   float rotateAroundY = vertex.y-(height/2+150);
-   vertex.set(vertex.x-rotateAroundX,vertex.y-rotateAroundY);
-   rotateAroundX = originalX * cos(PI/4) - originalY * sin(PI/4);
-   rotateAroundY = originalX * sin(PI/4) + originalY * cos(PI/4);
-   vertex.set(vertex.x+rotateAroundX,vertex.y+rotateAroundY);
-   radar.setVertex(i,vertex);
+public void rotateRight() {
+  for (int i = 0; i<radar.getVertexCount(); i++) {
+    PVector vertex = radar.getVertex(i);
+    float originalX = vertex.x-(width/3);
+    float originalY = vertex.y-(height/2+150);
+    float rotateAroundX = vertex.x-(width/3);
+    float rotateAroundY = vertex.y-(height/2+150);
+    vertex.set(vertex.x-rotateAroundX, vertex.y-rotateAroundY);
+    rotateAroundX = originalX * cos(PI/4) - originalY * sin(PI/4);
+    rotateAroundY = originalX * sin(PI/4) + originalY * cos(PI/4);
+    vertex.set(vertex.x+rotateAroundX, vertex.y+rotateAroundY);
+    radar.setVertex(i, vertex);
   }
 }
 
-public void rotateLeft(){
-   for(int i = 0; i<radar.getVertexCount(); i++){
-   PVector vertex = radar.getVertex(i);
-   float originalX = vertex.x-(width/3);
-   float originalY = vertex.y-(height/2+150);
-   float rotateAroundX = vertex.x-(width/3);
-   float rotateAroundY = vertex.y-(height/2+150);
-   vertex.set(vertex.x-rotateAroundX,vertex.y-rotateAroundY);
-   rotateAroundX = originalX * cos(-PI/4) - originalY * sin(-PI/4);
-   rotateAroundY = originalX * sin(-PI/4) + originalY * cos(-PI/4);
-   vertex.set(vertex.x+rotateAroundX,vertex.y+rotateAroundY);
-   radar.setVertex(i,vertex);
+public void rotateLeft() {
+  for (int i = 0; i<radar.getVertexCount(); i++) {
+    PVector vertex = radar.getVertex(i);
+    float originalX = vertex.x-(width/3);
+    float originalY = vertex.y-(height/2+150);
+    float rotateAroundX = vertex.x-(width/3);
+    float rotateAroundY = vertex.y-(height/2+150);
+    vertex.set(vertex.x-rotateAroundX, vertex.y-rotateAroundY);
+    rotateAroundX = originalX * cos(-PI/4) - originalY * sin(-PI/4);
+    rotateAroundY = originalX * sin(-PI/4) + originalY * cos(-PI/4);
+    vertex.set(vertex.x+rotateAroundX, vertex.y+rotateAroundY);
+    radar.setVertex(i, vertex);
   }
 }
