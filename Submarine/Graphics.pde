@@ -2,13 +2,15 @@ PShape left, right, up, down, radar;
 Map layout;
 ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
 //int taskCounter = 0;
-String[]images = new String[]{"task1.png", "task2.jpg", "task3.jpg", "task4.jpg", "task5.jpg", "task6.jpg", "task7.jpg", "task8.jpg", "task9.jpg"}; //9 imgs will manually add names of images later on
+String[]images = new String[]{"task1.png", "task2.jpg", "task3.png", "task4.jpg", "task5.jpg", "task6.jpg", "task7.jpg", "task8.jpg", "task9.png"}; //9 imgs will manually add names of images later on
+PImage[]loadedImg = new PImage[9];
 PImage photo;
 boolean displayImg = false;
 Submarine sub;
 int countdown = 0;
 int flicker = 0;
 boolean flickMode = false;
+static final int count = 5;
 
 
 void displayScreen() {
@@ -47,7 +49,10 @@ void displayScreen() {
 }
 
 void setup() {
-  //load img and resize here
+  for(int i = 0; i < images.length; i++){
+     loadedImg[i] = loadImage(images[i]); 
+     loadedImg[i].resize(width/2, height/2);
+  }
   fullScreen();
   tasks.add(new Coordinate(3, 4));
   tasks.add(new Coordinate(15, 16));
@@ -67,7 +72,7 @@ void setup() {
   radar.endShape(CLOSE);
   layout = new Map(1);
   sub = new Submarine(layout.randX, layout.randY);
-  println(" " + layout.randX  + " " + layout.randY);
+  //println(" " + layout.randX  + " " + layout.randY);
   displayScreen();
 }
 
@@ -111,18 +116,19 @@ void draw() {
   if (countdown > 0) {
     countdown--;
   }
-  if (keyPressed) {
+  if (keyPressed && countdown == 0) {
     if (key == 'p' || key == 'P') {
-      if (displayImg) {
+      /*if (displayImg) {
         displayScreen();
         displayImg = false;
-      } else {
+      } else*/ {displayImg = false;
         for (int i = 0; i < tasks.size(); i++) {
           if (sub.getPosX() == tasks.get(i).getX() && sub.getPosY()== tasks.get(i).getY()) {
             println("image got");
-            loadImage(images[i]);
-            photo = loadImage(images[i]);
-            image(photo, width/2, height/2, width/2, height/2);
+            //loadImage(images[i]);
+            //photo = loadImage(images[i]);
+            image(loadedImg[i], width/4, height/4);
+            //delay(10000);
             displayImg = true;
             break;
           }
@@ -140,15 +146,15 @@ void draw() {
       flickMode = !flickMode;
     } else if (key == CODED) { // && countdown == 0
       if (keyCode == UP) {
-        countdown += 60;
+        countdown += count;
         sub.calcForward(sub.getDeg());
         println("moving forward");
       } else if (keyCode == DOWN) {
-        countdown += 60;
+        countdown += count;
         sub.calcBackward(sub.getDeg());
         println("moving backward");
       } else if (keyCode == LEFT) {
-        countdown += 60;
+        countdown += count;
         sub.changeDeg(sub.getDeg()- 1);
         if (sub.getDeg() < 0) {
           sub.changeDeg(359);
@@ -159,7 +165,7 @@ void draw() {
         }
         println("subtract degree - 1, degree is now " + sub.getDeg());
       } else if (keyCode == RIGHT) {
-        countdown += 60;
+        countdown += count;
         sub.changeDeg(sub.getDeg() + 1);
         if (sub.getDeg() > 359) {
           sub.changeDeg(0);
