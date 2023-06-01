@@ -76,6 +76,9 @@ Graphics_Tab // Added a key press to turn on/off flickering for the radar's wall
              // If you hold onto key, image will continue to be displayed(no more flickering)
              // Fixed the system with the counter and key presses so it works properly
 
+### 6/1/23
+Graphics_Tab: // Adjusted bounds for when the radar rotates
+
 ## GROUP MEMBER 2 : Anabella Castle
 
 ### 5/22/23
