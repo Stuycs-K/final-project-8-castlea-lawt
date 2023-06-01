@@ -159,7 +159,7 @@ void draw() {
         if (sub.getDeg() < 0) {
           sub.changeDeg(359);
         }
-        if (sub.getDeg() % 45 == 0) {
+        if (sub.getDeg()== 359 || (sub.getDeg() != 0 && sub.getDeg() % 45 == 0)) {
           //radar.rotate(-PI/4);
           rotateLeft();
         }
@@ -170,7 +170,7 @@ void draw() {
         if (sub.getDeg() > 359) {
           sub.changeDeg(0);
         }
-        if (sub.getDeg()%45==0) {
+        if (sub.getDeg()!= 1 & sub.getDeg()%45==1) {
           //radar.rotate(PI/4);
           rotateRight();
         }
