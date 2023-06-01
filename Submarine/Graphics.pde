@@ -125,10 +125,7 @@ void draw() {
         for (int i = 0; i < tasks.size(); i++) {
           if (sub.getPosX() == tasks.get(i).getX() && sub.getPosY()== tasks.get(i).getY()) {
             println("image got");
-            //loadImage(images[i]);
-            //photo = loadImage(images[i]);
             image(loadedImg[i], width/4, height/4);
-            //delay(10000);
             displayImg = true;
             break;
           }
@@ -138,8 +135,6 @@ void draw() {
           textSize(75);
           println("no img");
           text("Not a task location. Try again.", height/2 + 230, width/2 -780, 350, 500); // width and then height of txt box
-          //delay(5000);
-          //displayScreen();
         }
       }
     } else if (key == 'f' || key == 'F') {
@@ -159,7 +154,7 @@ void draw() {
         if (sub.getDeg() < 0) {
           sub.changeDeg(359);
         }
-        if (sub.getDeg() % 45 == 0) {
+        if (sub.getDeg() % 45 == -1) {
           //radar.rotate(-PI/4);
           rotateLeft();
         }
@@ -170,7 +165,7 @@ void draw() {
         if (sub.getDeg() > 359) {
           sub.changeDeg(0);
         }
-        if (sub.getDeg()%45==0) {
+        if (sub.getDeg()%45==1) {
           //radar.rotate(PI/4);
           rotateRight();
         }

@@ -107,7 +107,7 @@ public class Map {
    public void display(){
     noStroke();
     rectMode(CORNER);
-    fill(0,150,0);
+    fill(0,150,200);
     rect(start.getX()*SQUARESIZE,start.getY()*SQUARESIZE,SQUARESIZE,SQUARESIZE);
     for(int i = 0;i<20;i++){
       for(int x = 0; x<18; x++){
