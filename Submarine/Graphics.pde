@@ -140,15 +140,15 @@ void draw() {
       flickMode = !flickMode;
     } else if (key == CODED) { // && countdown == 0
       if (keyCode == UP) {
-        countdown += 10;
+        countdown += 60;
         sub.calcForward(sub.getDeg());
         println("moving forward");
       } else if (keyCode == DOWN) {
-        countdown += 10;
+        countdown += 60;
         sub.calcBackward(sub.getDeg());
         println("moving backward");
       } else if (keyCode == LEFT) {
-        countdown += 10;
+        countdown += 60;
         sub.changeDeg(sub.getDeg()- 1);
         if (sub.getDeg() < 0) {
           sub.changeDeg(359);
@@ -159,7 +159,7 @@ void draw() {
         }
         println("subtract degree - 1, degree is now " + sub.getDeg());
       } else if (keyCode == RIGHT) {
-        countdown += 10;
+        countdown += 60;
         sub.changeDeg(sub.getDeg() + 1);
         if (sub.getDeg() > 359) {
           sub.changeDeg(0);
