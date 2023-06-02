@@ -2,7 +2,6 @@ public class Map {
   private char[][] map;
   private int SQUARESIZE;
   private Coordinate start;
-  boolean cheat = false;
   int randX = (int)(Math.random()*19)+1;
   int randY = (int)(Math.random()*17)+1;
 
@@ -96,6 +95,13 @@ public class Map {
   }
 
   public void display(){
+    if(cheat){
+      System.out.println("why are you cheating?");
+      fill(100,0,100);
+      rectMode(CENTER);
+      rect(sub.getPosX(), sub.getPosY(),4,4);
+    }
+    noStroke();
     rectMode(CORNER);
     fill(0,150,200);
     rect(start.getX()*SQUARESIZE,start.getY()*SQUARESIZE,SQUARESIZE,SQUARESIZE);

@@ -38,6 +38,9 @@ public class Submarine {
     if (wall == '#') {
       println("wall");
     } else {
+      if(cheat){
+        subShape.translate(x-positionX,y-positionY);
+      }
       positionX = x;
       positionY = y;
     }

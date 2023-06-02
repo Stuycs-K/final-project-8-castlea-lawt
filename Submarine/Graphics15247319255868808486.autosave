@@ -73,15 +73,6 @@ void setup() {
   radar.endShape(CLOSE);
   layout = new Map();
   sub = new Submarine(layout.randX, layout.randY);
-  subShape = createShape();
-  subShape.beginShape();
-  subShape.vertex(sub.getPosX()-2,sub.getPosY());
-  subShape.vertex(sub.getPosX(),sub.getPosY()-2);
-  subShape.vertex(sub.getPosX(),sub.getPosY()+2);
-  subShape.endShape(CLOSE);
-  fill(100,0,100);
-  shape(subShape);
-  subShape.setVisible(false);
   //println(" " + layout.randX  + " " + layout.randY);
   displayScreen();
 }
@@ -152,12 +143,6 @@ void draw() {
     }
     else if(key =='q' || key == 'Q'){
       cheat = !cheat;
-      if(cheat){
-        subShape.setVisible(true);
-      }
-      else{
-        subShape.setVisible(false);
-      }
     }
     else if (key == CODED) { // && countdown == 0
       if (keyCode == UP) {
