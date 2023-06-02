@@ -68,6 +68,17 @@ Graphics_Tab: //Set location of Submarine to the start location so now it can ac
               //Made wall indicators that flicker every 30 seconds or so when there is a wall on the 4 sides(might add for the corners as well)
               //When there is no task at spot, error msg shows up
 
+### 5/31/23
+Map_Tab: // Changed color of the start location so it is more visible
+
+Graphics_Tab // Added a key press to turn on/off flickering for the radar's wall indicators because the flickering hurts my eyes x . x
+             // All images are loaded and resized in setup instead of in draw
+             // If you hold onto key, image will continue to be displayed(no more flickering)
+             // Fixed the system with the counter and key presses so it works properly
+
+### 6/1/23
+Graphics_Tab: // Adjusted bounds for when the radar rotates
+
 ## GROUP MEMBER 2 : Anabella Castle
 
 ### 5/22/23
