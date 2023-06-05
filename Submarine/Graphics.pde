@@ -71,17 +71,14 @@ void setup() {
   radar.vertex(width/3-10, height/2+200);
   radar.vertex(width/3+10, height/2+200);
   radar.endShape(CLOSE);
-  layout = new Map();
+  layout = new Map(0);
   sub = new Submarine(layout.randX, layout.randY);
   subShape = createShape();
   subShape.beginShape();
-  subShape.vertex(sub.getPosX()-2,sub.getPosY());
-  subShape.vertex(sub.getPosX(),sub.getPosY()-2);
-  subShape.vertex(sub.getPosX(),sub.getPosY()+2);
+  subShape.vertex((sub.getPosX()*layout.SQUARESIZE),(sub.getPosY()*layout.SQUARESIZE)+15);
+  subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+15,sub.getPosY()*layout.SQUARESIZE);
+  subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+15,(sub.getPosY()*layout.SQUARESIZE)+30);
   subShape.endShape(CLOSE);
-  fill(100,0,100);
-  shape(subShape);
-  subShape.setVisible(false);
   //println(" " + layout.randX  + " " + layout.randY);
   displayScreen();
 }

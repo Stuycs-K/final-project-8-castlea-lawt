@@ -1,18 +1,25 @@
 public class Map {
   private char[][] map;
-  private int SQUARESIZE;
+  private int mode, SQUARESIZE;
   private Coordinate start;
   boolean cheat = false;
+  int EASY = 0;
+  int HARD = 1;
   int randX = (int)(Math.random()*19)+1;
   int randY = (int)(Math.random()*17)+1;
 
-  public Map() {
+  public Map(int mo) {
     map = new char[20][18];
+    mode = mo;
     SQUARESIZE = 30;
     //int randX = (int)(Math.random()*20);
     //int randY = (int)(Math.random()*18);
     start = new Coordinate(randX, randY);
     makeMap();
+  }
+  
+  public int getMode(){
+    return mode;
   }
 
   public char getAt(int x, int y) {
@@ -149,6 +156,10 @@ public class Map {
           }
         }
       }
+    }
+    if(mode==EASY){
+      fill(100,0,100);
+      shape(subShape);
     }
   }
 }
