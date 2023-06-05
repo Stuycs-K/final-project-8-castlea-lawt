@@ -10,6 +10,7 @@ boolean cheat = false;
 Submarine sub;
 int countdown = 0;
 int flicker = 0;
+int taskCounter = 0;
 boolean flickMode = false;
 static final int count = 5;
 
@@ -86,6 +87,9 @@ void setup() {
 void draw() {
   displayScreen();
   layout.display();
+  if(isDone()){
+    // do something here
+  }
   if (flicker > 0) {
     flicker--;
   }
@@ -134,6 +138,7 @@ void draw() {
             println("image got");
             image(loadedImg[i], width/4, height/4);
             displayImg = true;
+            taskCounter++;
             break;
           }
         }
@@ -219,5 +224,14 @@ public void rotateLeft() {
     rotateAroundY = originalX * sin(-PI/4) + originalY * cos(-PI/4);
     vertex.set(vertex.x+rotateAroundX, vertex.y+rotateAroundY);
     radar.setVertex(i, vertex);
+  }
+}
+
+public boolean isDone(){
+  if(taskCounter==9){
+    return true;
+  }
+  else{
+    return false;
   }
 }
