@@ -22,4 +22,13 @@ public class Progress {
       text("Not a task location. Try again.", height/2, width/2, 10, 10); // width and then height of txt box
     }
   }
+  
+  public boolean isDone(){
+    if(taskCounter==9){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 }
