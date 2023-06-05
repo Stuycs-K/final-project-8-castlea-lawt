@@ -135,5 +135,32 @@ Graphics_Tab // Added a rotateRight and rotateLeft function that correctly rotat
 
 Map_Tab:  // Made a new method for carving to make the code easier to parse through
           // edited carve code to incorporate a solid border around the edge of the Map
+          // removed mode field
+          // incorporated "cheat" into display in an attempt to get subShape to present
 
 Graphics_Tab: // edited tasks to make sure they don't impede on the border
+              // created boolean "cheat"
+              // created PShape "subShape"
+              // Tried to incorporate these two into setup and keyPressed
+
+### 6/1/23
+
+Graphics_Tab: // More work on cheatMode, tried putting it in the draw function
+              // moved where in keypressed cheatMode came into play
+
+### 6/2/23
+
+Graphics_Tab: // Made subShape have vertexes, moved the creation of the shape into setup
+              // Tried utilizing "setVisible()" to toggle whether subShape would be seen
+
+Map_Tab:  // removed subShape setup from display
+
+### 6/4/23
+
+Graphics_Tab: // Figured out how to get subShape to be visible via setup
+
+Map_Tab:  // reintegrated mode field, created an "easy" and "hard" mode
+          // made getMode() accessor method
+          // added "if mode == easy" at the end of display to actually display subShape
+
+Submarine_Tab: // edited translation of subShape within ChangePos
