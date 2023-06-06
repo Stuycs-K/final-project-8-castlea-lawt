@@ -89,7 +89,6 @@ void draw() {
   layout.display();
   if(isDone()){
     endScreen();
-    displayImg = false;
     noLoop();
   }
   if (flicker > 0) {
@@ -233,5 +232,6 @@ public void endScreen(){
   background(0);
   fill(255);
   textSize(128);
-  text("word", width/2, height/2); 
+  text("GAME OVER", width/3, height/6); 
+  text("Press Space To Return to Menu",width/3,5*(height/6));
 }
