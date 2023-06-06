@@ -88,7 +88,8 @@ void draw() {
   displayScreen();
   layout.display();
   if(isDone()){
-    // do something here
+    endScreen();
+    noLoop();
   }
   if (flicker > 0) {
     flicker--;
@@ -138,7 +139,7 @@ void draw() {
             println("image got");
             image(loadedImg[i], width/4, height/4);
             displayImg = true;
-            taskCounter++;
+            layout.gotIt(sub.getPosX(),sub.getPosY());
             break;
           }
         }
@@ -151,15 +152,6 @@ void draw() {
       }
     } else if (key == 'f' || key == 'F') {
       flickMode = !flickMode;
-    }
-    else if(key =='q' || key == 'Q'){
-      cheat = !cheat;
-      if(cheat){
-        subShape.setVisible(true);
-      }
-      else{
-        subShape.setVisible(false);
-      }
     }
     else if (key == CODED) { // && countdown == 0
       if (keyCode == UP) {
@@ -234,4 +226,8 @@ public boolean isDone(){
   else{
     return false;
   }
+}
+
+public void endScreen(){
+  background(0);
 }

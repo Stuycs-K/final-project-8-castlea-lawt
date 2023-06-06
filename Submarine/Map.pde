@@ -101,6 +101,13 @@ public class Map {
       }
     }
   }
+  
+  public void gotIt(int x,int y){
+    if(map[x][y]=='*'){
+      map[x][y] = '@';
+      taskCounter++;
+    }
+  }
 
   public void display(){
     rectMode(CORNER);
@@ -149,9 +156,15 @@ public class Map {
             rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
           }
           else{
-            if(working != 'x'){
-              fill(0);
+            if(working == '@'){
+              fill(150,0,150);
               rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+            }
+            else{
+              if(working != 'x'){
+                fill(0);
+                rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+              }
             }
           }
         }

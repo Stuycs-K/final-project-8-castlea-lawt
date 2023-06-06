@@ -1,6 +1,6 @@
 public class Progress {
   ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
-  int taskCounter = 0;
+  //int taskCounter = 0;
   String[]images = new String[]{"task1.png","task2.jpg"}; //9 imgs will manually add names of images later on
   PImage photo;
   boolean rightLoco;
@@ -20,15 +20,6 @@ public class Progress {
     if (!rightLoco) {
       textSize(50);
       text("Not a task location. Try again.", height/2, width/2, 10, 10); // width and then height of txt box
-    }
-  }
-  
-  public boolean isDone(){
-    if(taskCounter==9){
-      return true;
-    }
-    else{
-      return false;
     }
   }
 }
