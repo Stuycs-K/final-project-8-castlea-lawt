@@ -85,12 +85,12 @@ void setup() {
 }
 
 void draw() {
-  displayScreen();
-  layout.display();
   if(isDone()){
     endScreen();
     noLoop();
   }
+  displayScreen();
+  layout.display();
   if (flicker > 0) {
     flicker--;
   }
@@ -230,4 +230,7 @@ public boolean isDone(){
 
 public void endScreen(){
   background(0);
+  fill(255);
+  textSize(128);
+  text("word", width/2, height/2); 
 }
