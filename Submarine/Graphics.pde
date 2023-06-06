@@ -85,12 +85,13 @@ void setup() {
 }
 
 void draw() {
-  if(isDone()){
-    endScreen();
-    noLoop();
-  }
   displayScreen();
   layout.display();
+  if(isDone()){
+    endScreen();
+    displayImg = false;
+    noLoop();
+  }
   if (flicker > 0) {
     flicker--;
   }
