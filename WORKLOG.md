@@ -164,3 +164,13 @@ Map_Tab:  // reintegrated mode field, created an "easy" and "hard" mode
           // added "if mode == easy" at the end of display to actually display subShape
 
 Submarine_Tab: // edited translation of subShape within ChangePos
+
+### 6/5/23
+
+Graphics_Tab: // made an isDone() function and moved the variable taskCounter from progress tab
+              // added if statement to end the game
+              // made a way to count the tasks gotten and incorporated that into keyPressed function
+              // worked on endScreen() function
+
+Map_Tab:  // made a gotIt() function to change the color of the tasks after you get them, and to increase the taskCounter only once
+          // added color change to display
