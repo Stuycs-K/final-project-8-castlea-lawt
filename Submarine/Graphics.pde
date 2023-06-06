@@ -232,6 +232,8 @@ public void keyPressed(){
   if(key==ENTER||key==RETURN){
     loop();
     taskCounter = 0;
+    layout.resetTasks();
+    sub.changePos(layout.randX,layout.randY);
   }
 }
 
@@ -240,5 +242,5 @@ public void endScreen(){
   fill(255);
   textSize(128);
   text("GAME OVER", width/3, height/6); 
-  text("Press Enter To Return to Menu",width/6,5*(height/6));
+  text("Press Enter To Return to Menu",width/8,5*(height/6));
 }
