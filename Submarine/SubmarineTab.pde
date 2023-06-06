@@ -48,10 +48,8 @@ public class Submarine {
 
   public void calcForward(int degrees) {
     if (degrees <= 45 && getPosY() > 0) {
-      println("45f");
       changePos(getPosX(), getPosY()-1);
     } else if (degrees <= 90 && (getPosY() > 0 && getPosX() < xMax - 1)) {
-      println("90f");
       changePos(getPosX() + 1, getPosY() - 1);
     } else if (degrees <= 135 && getPosX() < xMax - 1) {
       changePos(getPosX() + 1, getPosY());
@@ -59,8 +57,7 @@ public class Submarine {
       changePos(getPosX() + 1, getPosY() + 1);
     } else if (degrees <= 225 && getPosY() < yMax - 1) {
       changePos(getPosX(), getPosY() + 1);
-    } else if (degrees <= 270 && (getPosY() > yMax - 1 && getPosX() > 0)) {
-      println("going forward from 226 to 270");
+    } else if (degrees <= 270 && (getPosY() < yMax - 1 && getPosX() > 0)) {
       changePos(getPosX() - 1, getPosY() + 1);
     } else if (degrees <= 315 && getPosX() > 0) {
       changePos(getPosX() - 1, getPosY());
@@ -71,20 +68,16 @@ public class Submarine {
 
   public void calcBackward(int degrees) {
     if (degrees <= 45 && getPosY() < yMax - 1) {
-      println("45b");
       changePos(getPosX(), getPosY()+1);
-    } else if (degrees <= 90 && (getPosY() > yMax - 1 && getPosX() > 0)) {
-      println("90b");
+    } else if (degrees <= 90 && (getPosY() < yMax - 1 && getPosX() > 0)) {
       changePos(getPosX() - 1, getPosY() + 1);
     } else if (degrees <= 135 && getPosX() > 0) {
-      println("135b");
       changePos(getPosX() - 1, getPosY());
     } else if (degrees <=180 && (getPosX() > 0 && getPosY() > 0)) {
       changePos(getPosX() - 1, getPosY() - 1);
     } else if (degrees <= 225 && getPosY() > 0) {
       changePos(getPosX(), getPosY() - 1);
     } else if (degrees <= 270 && (getPosY() > 0 && getPosX() < xMax - 1)) {
-      println("going backward from 226 to 270");
       changePos(getPosX() + 1, getPosY() - 1);
     } else if (degrees <= 315 && getPosX() < xMax - 1) {
       changePos(getPosX() + 1, getPosY());
