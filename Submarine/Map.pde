@@ -1,5 +1,5 @@
 public class Map {
-  private char[][] map;
+ private char[][] map;
   private int mode, SQUARESIZE;
   private Coordinate start;
   boolean cheat = false;
@@ -7,7 +7,6 @@ public class Map {
   int HARD = 1;
   int randX = (int)(Math.random()*19)+1;
   int randY = (int)(Math.random()*17)+1;
-
   public Map(int mo) {
     map = new char[20][18];
     mode = mo;
@@ -21,11 +20,9 @@ public class Map {
   public int getMode(){
     return mode;
   }
-
   public char getAt(int x, int y) {
     return map[x][y];
   }
-
   public void makeMap() {
     for (int i = 0; i<map.length; i++) {
       for (int x = 0; x<map[0].length; x++) {
@@ -101,7 +98,7 @@ public class Map {
       }
     }
   }
-  
+
   public void gotIt(int x,int y){
     if(map[x][y]=='*'){
       map[x][y] = '@';
