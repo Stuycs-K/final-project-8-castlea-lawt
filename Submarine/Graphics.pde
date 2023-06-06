@@ -1,3 +1,7 @@
+import processing.sound.*;
+SoundFile file;
+//SoundFile[] soundNames = new
+
 PShape left, right, up, down, radar, subShape;
 Map layout;
 ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
