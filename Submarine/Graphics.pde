@@ -228,10 +228,17 @@ public boolean isDone(){
   }
 }
 
+public void keyPressed(){
+  if(key==ENTER||key==RETURN){
+    loop();
+    taskCounter = 0;
+  }
+}
+
 public void endScreen(){
   background(0);
   fill(255);
   textSize(128);
   text("GAME OVER", width/3, height/6); 
-  text("Press Space To Return to Menu",width/3,5*(height/6));
+  text("Press Enter To Return to Menu",width/4,5*(height/6));
 }
