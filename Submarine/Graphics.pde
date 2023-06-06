@@ -240,5 +240,5 @@ public void endScreen(){
   fill(255);
   textSize(128);
   text("GAME OVER", width/3, height/6); 
-  text("Press Enter To Return to Menu",width/4,5*(height/6));
+  text("Press Enter To Return to Menu",width/6,5*(height/6));
 }
