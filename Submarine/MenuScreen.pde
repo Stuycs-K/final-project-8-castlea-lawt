@@ -70,4 +70,5 @@ public void menu(){
       System.out.println("Start");
     }
   }
+  textAlign(LEFT);
 }
