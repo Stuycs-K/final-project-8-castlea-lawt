@@ -2,6 +2,7 @@ public class Map {
  private char[][] map;
   private int mode, SQUARESIZE;
   private Coordinate start;
+  private String[] notes = new String[]{"They sent you here to die","You'll never make it out in time","Why are you still trying?","You were never meant to see these things","Secrets like this like to stay BURIED"};
   boolean cheat = false;
   int EASY = 0;
   int HARD = 1;
@@ -38,6 +39,7 @@ public class Map {
     for(int i = 0; i<tasks.size(); i++){
       carve(tasks.get(i),1);
     }
+    makeEasterEggs();
   }
   
   public void carve(Coordinate startSpot, int special){
@@ -104,6 +106,9 @@ public class Map {
       map[x][y] = '@';
       taskCounter++;
     }
+    if(map[x][y]=='!'){
+      map[x][y] = ' ';
+    }
   }
   
   public void resetTasks(){
@@ -112,16 +117,28 @@ public class Map {
     }
   }
   
-  public void easterEggs(){
-    for(int i = 0; i<5; i++){
-      for(int x = 0; x<5; x++){
-        int rX = (int)(Math.random()*19)+1;
-        int rY = (int)(Math.random()*17)+1;
-        if(map[rX][rY]==' '){
-          map[rX][rY]='!';
-          
-        }
+  public void makeEasterEggs(){
+    int i = 0;
+    while(i<5){
+      int rX = (int)(Math.random()*19)+1;
+      int rY = (int)(Math.random()*17)+1;
+      if(map[rX][rY]==' '){
+        map[rX][rY]='!';
+        eggs.add(new Coordinate(rX,rY));
+        i++;
       }
+    }
+  }
+  
+  public void openNote(int whichNote){
+    if(map[sub.getPosX()][sub.getPosY()] == '!'){
+      foundNote = true;
+      background(0);
+      fill(255);
+      textSize(200);
+      textAlign(CENTER);
+      text(notes[whichNote],width/2,height/2);
+      textAlign(LEFT);
     }
   }
 

@@ -6,6 +6,9 @@ String[] audNames = new String[]{"degree_tick.wav", "hit_wall.wav", "show_pic.wa
 PShape left, right, up, down, radar, subShape;
 Map layout;
 ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
+ArrayList<Coordinate> eggs = new ArrayList<Coordinate>(5);
+int notesFound = 0;
+boolean foundNote = false;
 //int taskCounter = 0;
 String[]images = new String[]{"task1.png", "task2.jpg", "task3.png", "task4.jpg", "task5.jpg", "task6.jpg", "task7.jpg", "task8.jpg", "task9.png"}; //9 imgs will manually add names of images later on
 PImage[]loadedImg = new PImage[9];
@@ -178,10 +181,18 @@ void draw() {
     } else if (key == 'f' || key == 'F') {
       flickMode = !flickMode;
     }
+    else if(key == 'Z'||key=='z'){
+      layout.openNote(notesFound);
+    }
     else if (key == CODED) { // && countdown == 0
       if (keyCode == UP && countMove == 0) {
         countMove += mCount;
         sub.calcForward(sub.getDeg());
+        if(layout.getAt(sub.getPosX(),sub.getPosY())=='!'){
+          textSize(50);
+          fill(255);
+          text("You found a note, open it? [Z]",4*width/5,height/6,30,20);
+        }
         println("moving forward");
       } else if (keyCode == DOWN && countMove == 0) {
         countMove += mCount;
@@ -227,6 +238,14 @@ public void keyReleased(){
  else if(key == 'p' || key == 'P'){
    takePicCool = 0;
    showPicCool = 0;
+ }
+ else if(key == 'Z'||key=='z'){
+   if(foundNote){
+     eggs.remove(new Coordinate(sub.getPosX(),sub.getPosY()));
+     layout.gotIt(sub.getPosX(),sub.getPosY()
+     notesFound++;
+     foundNote = false;
+   }
  }
 }
 
