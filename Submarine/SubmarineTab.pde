@@ -3,6 +3,25 @@ public class Submarine {
   private int positionX, positionY, degrees; // set to a default value later maybe
   private static final int xMax = 20;
   private static final int yMax = 18;
+  public int oxygen, change, time, max;
+  
+  public int leak(int ox, int ch){
+   ox=-ch; 
+   return ox;
+  }
+  
+  public void setO2(int ox){
+    oxygen = ox;
+    max = oxygen;
+  }
+  
+  public void setChange(int ch){
+     change = ch; 
+  }
+  
+  public void setTime(int rate){
+   time = rate; 
+  }
   
   public int getXMax(){
    return xMax; 

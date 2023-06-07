@@ -51,6 +51,11 @@ void displayScreen() {
   text("" + sub.getDeg(), width/4+70, height/2+340); //displaying degrees
   text("x: " + sub.getPosX(), 2*width/3 - 95, height/2 +120);
   text("y: " + sub.getPosY(), 2*width/3 - 95, height/2 +200);
+  //for displaying how much oxygen is left
+  text("O2", 2*width/3 + 250, height/2 - 400);
+  text("" + sub.oxygen + "  %", 2*width/3+250, height/2 + 400);
+  //make shape for oxygen bar thing that goes down according to % of oxygen
+  
   fill(100);
   stroke(0);
   triangle(width/4, height/2+400, width/3-10, height/2+450, width/3-10, height/2+350);
