@@ -1,3 +1,4 @@
+import processing.sound.*;
 public class Submarine {
   private int positionX, positionY, degrees; // set to a default value later maybe
   private static final int xMax = 20;
@@ -36,6 +37,7 @@ public class Submarine {
     println("changing pos");
     char wall = layout.getAt(x, y);
     if (wall == '#') {
+      audio[1].play();
       println("wall");
     } else {
       if(layout.getMode()==layout.EASY){

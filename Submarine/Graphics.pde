@@ -1,6 +1,7 @@
 import processing.sound.*;
 SoundFile file;
-//SoundFile[] soundNames = new
+SoundFile[] audio = new SoundFile[6];
+String[] audNames = new String[]{"degree_tick.wav", "hit_wall.wav", "show_pic.wav", "soma_underwater.wav", "sub_move.wav", "take_pic.wav"};
 
 PShape left, right, up, down, radar, subShape;
 Map layout;
@@ -13,9 +14,14 @@ boolean displayImg = false;
 boolean cheat = false;
 Submarine sub;
 int countdown = 0;
+int countMove = 0;
 int flicker = 0;
 boolean flickMode = false;
 static final int count = 5;
+static final int mCount = 15;
+int takePicCool = 0;
+int showPicCool = 0;
+int degCool = 0;
 
 
 void displayScreen() {
@@ -58,7 +64,11 @@ void setup() {
      loadedImg[i] = loadImage(images[i]); 
      loadedImg[i].resize(width/2, height/2);
   }
+  for(int i = 0; i < audNames.length; i++){
+   audio[i] = new SoundFile(this, audNames[i]); 
+  }
   fullScreen();
+  audio[3].play();
   tasks.add(new Coordinate(3, 4));
   tasks.add(new Coordinate(15, 16));
   tasks.add(new Coordinate(12, 16));
@@ -127,15 +137,22 @@ void draw() {
   if (countdown > 0) {
     countdown--;
   }
-  if (keyPressed && countdown == 0) {
+  if( countMove > 0){
+   countMove--; 
+  }
+  if (keyPressed) {
     if (key == 'p' || key == 'P') {
-      /*if (displayImg) {
-        displayScreen();
-        displayImg = false;
-      } else*/ {displayImg = false;
+      if(takePicCool == 0){
+      audio[5].play();
+      takePicCool++;
+      }
+      {displayImg = false;
         for (int i = 0; i < tasks.size(); i++) {
           if (sub.getPosX() == tasks.get(i).getX() && sub.getPosY()== tasks.get(i).getY()) {
-            println("image got");
+            if(showPicCool == 0){
+            audio[2].play();
+            showPicCool++;
+            }
             image(loadedImg[i], width/4, height/4);
             displayImg = true;
             break;
@@ -144,7 +161,6 @@ void draw() {
         if (!displayImg) {
           fill(255, 0, 0);
           textSize(75);
-          println("no img");
           text("Not a task location. Try again.", height/2 + 230, width/2 -780, 350, 500); // width and then height of txt box
         }
       }
@@ -161,15 +177,16 @@ void draw() {
       }
     }
     else if (key == CODED) { // && countdown == 0
-      if (keyCode == UP) {
-        countdown += count;
+      if (keyCode == UP && countMove == 0) {
+        countMove += mCount;
         sub.calcForward(sub.getDeg());
         println("moving forward");
-      } else if (keyCode == DOWN) {
-        countdown += count;
+      } else if (keyCode == DOWN && countMove == 0) {
+        countMove += mCount;
         sub.calcBackward(sub.getDeg());
         println("moving backward");
-      } else if (keyCode == LEFT) {
+      } else if (keyCode == LEFT && countdown == 0) {
+        audio[0].play();
         countdown += count;
         sub.changeDeg(sub.getDeg()- 1);
         if (sub.getDeg() < 0) {
@@ -179,8 +196,9 @@ void draw() {
           //radar.rotate(-PI/4);
           rotateLeft();
         }
-        println("subtract degree - 1, degree is now " + sub.getDeg());
-      } else if (keyCode == RIGHT) {
+        //println("subtract degree - 1, degree is now " + sub.getDeg());
+      } else if (keyCode == RIGHT && countdown == 0) {
+        audio[0].play();
         countdown += count;
         sub.changeDeg(sub.getDeg() + 1);
         if (sub.getDeg() > 359) {
@@ -190,10 +208,23 @@ void draw() {
           //radar.rotate(PI/4);
           rotateRight();
         }
-        println("add degree + 1, degree is now " + sub.getDeg()  );
+        //println("add degree + 1, degree is now " + sub.getDeg()  );
       }
     }
   }
+}
+
+public void keyReleased(){
+  println("key released");
+ if(keyCode == LEFT || keyCode == RIGHT){
+   println("degree audio has been stopped");
+   audio[0].stop();
+   degCool = 0;
+ }
+ else if(key == 'p' || key == 'P'){
+   takePicCool = 0;
+   showPicCool = 0;
+ }
 }
 
 public void rotateRight() {
