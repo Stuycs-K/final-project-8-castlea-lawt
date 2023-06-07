@@ -5,6 +5,7 @@ public class Map {
   boolean cheat = false;
   int EASY = 0;
   int HARD = 1;
+  int EXTRAHARD = 2;
   int randX = (int)(Math.random()*19)+1;
   int randY = (int)(Math.random()*17)+1;
   public Map(int mo) {

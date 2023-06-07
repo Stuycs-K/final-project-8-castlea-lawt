@@ -3,7 +3,7 @@ SoundFile file;
 SoundFile[] audio = new SoundFile[6];
 String[] audNames = new String[]{"degree_tick.wav", "hit_wall.wav", "show_pic.wav", "soma_underwater.wav", "sub_move.wav", "take_pic.wav"};
 
-PShape left, right, up, down, radar, subShape;
+PShape left, right, up, down, radar, bar, subShape;
 Map layout;
 ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
 //int taskCounter = 0;
@@ -56,7 +56,9 @@ void displayScreen() {
   text("O2", 2*width/3 + 250, height/2 - 400);
   text("" + sub.oxygen + "  %", 2*width/3+250, height/2 + 400);
   //make shape for oxygen bar thing that goes down according to % of oxygen
-  
+  bar = createShape(RECT, 2*width/3+300, height/2 - 30, 20, 700);
+  bar.setFill(color(0,0,255));
+  shape(bar);
   fill(100);
   stroke(0);
   triangle(width/4, height/2+400, width/3-10, height/2+450, width/3-10, height/2+350);
@@ -86,7 +88,6 @@ void setup() {
   tasks.add(new Coordinate(2, 14));
   tasks.add(new Coordinate(18, 16));
   tasks.add(new Coordinate(1, 10));
-  //radar = createShape(TRIANGLE, width/3, height/2+100, width/3-10, height/2+200, width/3+10, height/2+200);
   radar = createShape();
   radar.beginShape();
   radar.vertex(width/3, height/2+100);
@@ -101,8 +102,6 @@ void setup() {
   subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+15,sub.getPosY()*layout.SQUARESIZE);
   subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+15,(sub.getPosY()*layout.SQUARESIZE)+30);
   subShape.endShape(CLOSE);
-  //println(" " + layout.randX  + " " + layout.randY);
-  //displayScreen();
 }
 
 void draw() {
