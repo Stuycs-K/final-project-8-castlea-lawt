@@ -12,6 +12,7 @@ PImage[]loadedImg = new PImage[9];
 PImage photo;
 boolean displayImg = false;
 boolean cheat = false;
+boolean menu = true;
 Submarine sub;
 int countdown = 0;
 int countMove = 0;
@@ -95,10 +96,14 @@ void setup() {
   subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+15,(sub.getPosY()*layout.SQUARESIZE)+30);
   subShape.endShape(CLOSE);
   //println(" " + layout.randX  + " " + layout.randY);
-  displayScreen();
+  //displayScreen();
 }
 
 void draw() {
+  if(menu){
+    menu();
+  }
+  else{
   displayScreen();
   layout.display();
   if(isDone()){
@@ -208,6 +213,7 @@ void draw() {
         //println("add degree + 1, degree is now " + sub.getDeg()  );
       }
     }
+  }
   }
 }
 
