@@ -105,6 +105,12 @@ public class Map {
       taskCounter++;
     }
   }
+  
+  public void resetTasks(){
+    for(int i = 0; i<tasks.size(); i++){
+      map[tasks.get(i).getX()][tasks.get(i).getY()] = '*';
+    }
+  }
 
   public void display(){
     rectMode(CORNER);
