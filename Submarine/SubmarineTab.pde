@@ -57,7 +57,7 @@ public class Submarine {
       changePos(getPosX() + 1, getPosY() + 1);
     } else if (degrees <= 225 && getPosY() < yMax - 1) {
       changePos(getPosX(), getPosY() + 1);
-    } else if (degrees <= 270 && (getPosY() > yMax - 1 && getPosX() > 0)) {
+    } else if (degrees <= 270 && (getPosY() < yMax - 1 && getPosX() > 0)) {
       changePos(getPosX() - 1, getPosY() + 1);
     } else if (degrees <= 315 && getPosX() > 0) {
       changePos(getPosX() - 1, getPosY());
@@ -69,7 +69,7 @@ public class Submarine {
   public void calcBackward(int degrees) {
     if (degrees <= 45 && getPosY() < yMax - 1) {
       changePos(getPosX(), getPosY()+1);
-    } else if (degrees <= 90 && (getPosY() > yMax - 1 && getPosX() > 0)) {
+    } else if (degrees <= 90 && (getPosY() < yMax - 1 && getPosX() > 0)) {
       changePos(getPosX() - 1, getPosY() + 1);
     } else if (degrees <= 135 && getPosX() > 0) {
       changePos(getPosX() - 1, getPosY());
@@ -85,32 +85,4 @@ public class Submarine {
       changePos(getPosX() + 1, getPosY() + 1);
     }
   }
-
-  /*public void keyPressed() {
-    //while (keyPressed) {
-    if (key == CODED) {
-      if (keyCode == UP) {
-        changePos(getPosX(), getPosY() - 1);
-      } else if (keyCode == DOWN) {
-        changePos(getPosX(), getPosY() + 1);
-      } else if (keyCode == LEFT) {
-        degrees--;
-        if (degrees < 0) {
-          degrees = 0;
-        }
-        radar.rotate(radians(-1));
-        calcDirection(degrees);
-        println("turning left");
-      } else if (keyCode == RIGHT) {
-        degrees++;
-        if (degrees > 360) {
-          degrees = 0;
-        }
-        radar.rotate(radians(1));
-        calcDirection(degrees);
-        println("turning right");
-      }
-    }
-  }*/
-  
 }
