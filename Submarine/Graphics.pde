@@ -275,6 +275,7 @@ public void keyPressed(){
     taskCounter = 0;
     layout.resetTasks();
     sub.changePos(layout.randX,layout.randY);
+    menu = true;
   }
 }
 
