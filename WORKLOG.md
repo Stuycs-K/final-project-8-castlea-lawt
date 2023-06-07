@@ -187,3 +187,13 @@ Graphics_Tab: // made an isDone() function and moved the variable taskCounter fr
 
 Map_Tab:  // made a gotIt() function to change the color of the tasks after you get them, and to increase the taskCounter only once
           // added color change to display
+
+### 6/6/23
+
+Graphics_Tab: // coded the endScreen() function
+              // added to keyPressed() to incorporate returning to menu and resetting the screen
+              // added menu function and if statement to draw
+
+MenuScreen_Tab: // Created a boolean "menu" to implement menu in draw
+                // Set up menu screen with keyPressed booleans
+                // Instructions, controls, mode choices, and the start button are now available in the menu
