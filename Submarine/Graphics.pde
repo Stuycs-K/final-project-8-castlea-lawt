@@ -16,6 +16,7 @@ Submarine sub;
 int countdown = 0;
 int countMove = 0;
 int flicker = 0;
+int taskCounter = 0;
 boolean flickMode = false;
 static final int count = 5;
 static final int mCount = 15;
@@ -100,6 +101,10 @@ void setup() {
 void draw() {
   displayScreen();
   layout.display();
+  if(isDone()){
+    endScreen();
+    noLoop();
+  }
   if (flicker > 0) {
     flicker--;
   }
@@ -155,6 +160,7 @@ void draw() {
             }
             image(loadedImg[i], width/4, height/4);
             displayImg = true;
+            layout.gotIt(sub.getPosX(),sub.getPosY());
             break;
           }
         }
@@ -166,15 +172,6 @@ void draw() {
       }
     } else if (key == 'f' || key == 'F') {
       flickMode = !flickMode;
-    }
-    else if(key =='q' || key == 'Q'){
-      cheat = !cheat;
-      if(cheat){
-        subShape.setVisible(true);
-      }
-      else{
-        subShape.setVisible(false);
-      }
     }
     else if (key == CODED) { // && countdown == 0
       if (keyCode == UP && countMove == 0) {
@@ -255,4 +252,30 @@ public void rotateLeft() {
     vertex.set(vertex.x+rotateAroundX, vertex.y+rotateAroundY);
     radar.setVertex(i, vertex);
   }
+}
+
+public boolean isDone(){
+  if(taskCounter==9){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+public void keyPressed(){
+  if(key==ENTER||key==RETURN){
+    loop();
+    taskCounter = 0;
+    layout.resetTasks();
+    sub.changePos(layout.randX,layout.randY);
+  }
+}
+
+public void endScreen(){
+  background(0);
+  fill(255);
+  textSize(128);
+  text("GAME OVER", width/3, height/6); 
+  text("Press Enter To Return to Menu",width/8,5*(height/6));
 }
