@@ -111,6 +111,19 @@ public class Map {
       map[tasks.get(i).getX()][tasks.get(i).getY()] = '*';
     }
   }
+  
+  public void easterEggs(){
+    for(int i = 0; i<5; i++){
+      for(int x = 0; x<5; x++){
+        int rX = (int)(Math.random()*19)+1;
+        int rY = (int)(Math.random()*17)+1;
+        if(map[rX][rY]==' '){
+          map[rX][rY]='!';
+          
+        }
+      }
+    }
+  }
 
   public void display(){
     rectMode(CORNER);
@@ -119,7 +132,7 @@ public class Map {
     for(int i = 0;i<20;i++){
       for(int x = 0; x<18; x++){
         char working = map[i][x];
-        if(working==' '){
+        if(working==' '||working=='!'){
           if(i>0&&x>0){
             if(map[i-1][x]=='#'&&map[i][x-1]=='#'){
               fill(0);
