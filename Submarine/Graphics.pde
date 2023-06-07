@@ -24,6 +24,7 @@ static final int mCount = 15;
 int takePicCool = 0;
 int showPicCool = 0;
 int degCool = 0;
+int tickCount = 0;
 
 
 void displayScreen() {
@@ -105,6 +106,10 @@ void setup() {
 }
 
 void draw() {
+  if(tickCount == sub.max){
+    
+    tickCount = 0;
+  }
   if(menu){
     menu();
   }

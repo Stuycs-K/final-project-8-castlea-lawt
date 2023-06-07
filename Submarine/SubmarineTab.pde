@@ -12,7 +12,7 @@ public class Submarine {
   
   public void setO2(int ox){
     oxygen = ox;
-    max = oxygen;
+    max = oxygen * 60;
   }
   
   public void setChange(int ch){
