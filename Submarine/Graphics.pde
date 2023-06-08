@@ -12,10 +12,12 @@ PImage[]loadedImg = new PImage[9];
 PImage photo;
 boolean displayImg = false;
 boolean cheat = false;
+boolean menu = true;
 Submarine sub;
 int countdown = 0;
 int countMove = 0;
 int flicker = 0;
+int taskCounter = 0;
 boolean flickMode = false;
 static final int count = 5;
 static final int mCount = 15;
@@ -94,12 +96,20 @@ void setup() {
   subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+15,(sub.getPosY()*layout.SQUARESIZE)+30);
   subShape.endShape(CLOSE);
   //println(" " + layout.randX  + " " + layout.randY);
-  displayScreen();
+  //displayScreen();
 }
 
 void draw() {
+  if(menu){
+    menu();
+  }
+  else{
   displayScreen();
   layout.display();
+  if(isDone()){
+    endScreen();
+    noLoop();
+  }
   if (flicker > 0) {
     flicker--;
   }
@@ -155,6 +165,7 @@ void draw() {
             }
             image(loadedImg[i], width/4, height/4);
             displayImg = true;
+            layout.gotIt(sub.getPosX(),sub.getPosY());
             break;
           }
         }
@@ -166,15 +177,6 @@ void draw() {
       }
     } else if (key == 'f' || key == 'F') {
       flickMode = !flickMode;
-    }
-    else if(key =='q' || key == 'Q'){
-      cheat = !cheat;
-      if(cheat){
-        subShape.setVisible(true);
-      }
-      else{
-        subShape.setVisible(false);
-      }
     }
     else if (key == CODED) { // && countdown == 0
       if (keyCode == UP && countMove == 0) {
@@ -211,6 +213,7 @@ void draw() {
         //println("add degree + 1, degree is now " + sub.getDeg()  );
       }
     }
+  }
   }
 }
 
@@ -255,4 +258,32 @@ public void rotateLeft() {
     vertex.set(vertex.x+rotateAroundX, vertex.y+rotateAroundY);
     radar.setVertex(i, vertex);
   }
+}
+
+public boolean isDone(){
+  if(taskCounter==9){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+public void keyPressed(){
+  if(key==ENTER||key==RETURN){
+    loop();
+    taskCounter = 0;
+    radar.setVertex(0,new PVector(width/3, height/2+100));
+    radar.setVertex(1,new PVector(width/3-10, height/2+200));
+    radar.setVertex(2,new PVector(width/3+10, height/2+200));
+    menu = true;
+  }
+}
+
+public void endScreen(){
+  background(0);
+  fill(255);
+  textSize(128);
+  text("GAME OVER", width/3, height/6); 
+  text("Press Enter To Return to Menu",width/8,5*(height/6));
 }

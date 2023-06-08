@@ -79,6 +79,19 @@ Graphics_Tab // Added a key press to turn on/off flickering for the radar's wall
 ### 6/1/23
 Graphics_Tab: // Adjusted bounds for when the radar rotates
 
+### 6/6/23
+Repo: //Added mp3 files for audio -> Converted and replaced to wav files
+      //These files included a sound effect for when submarine hits wall, when submarine moves(not yet implemented),
+        when altering degrees, when taking a picture, when showing a picture and ambience music.
+
+Submarine_Tab: //Fixed forward movement for degrees from 46-90 and fixed backward and forward movement for degrees 226 - 270
+
+Graphics_Tab:  // Sound is loaded in setup
+               // Made variables countMove and mCount to make a timer for moving the sub separate from the timer for altering degrees
+               // Made variables takePicCool and showPicCool so sound is only played once(instead of on loop) when the key 'p' is pressed
+               // Made a keyReleased function for sound cooldown/stopping
+
+
 ## GROUP MEMBER 2 : Anabella Castle
 
 ### 5/22/23
@@ -174,3 +187,13 @@ Graphics_Tab: // made an isDone() function and moved the variable taskCounter fr
 
 Map_Tab:  // made a gotIt() function to change the color of the tasks after you get them, and to increase the taskCounter only once
           // added color change to display
+
+### 6/6/23
+
+Graphics_Tab: // coded the endScreen() function
+              // added to keyPressed() to incorporate returning to menu and resetting the screen
+              // added menu function and if statement to draw
+
+MenuScreen_Tab: // Created a boolean "menu" to implement menu in draw
+                // Set up menu screen with keyPressed booleans
+                // Instructions, controls, mode choices, and the start button are now available in the menu
