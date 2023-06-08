@@ -53,12 +53,14 @@ public void menu(){
     }
     if(key=='1'){
       layout = new Map(1);
+      sub = new Submarine(layout.randX, layout.randY);
       fill(250,0,0);
       textSize(80);
       text("Hard Mode [1]",width/2-95,3*height/5);
     }
     if(key=='2'){
       layout = new Map(2);
+      sub = new Submarine(layout.randX, layout.randY);
       fill(150,0,20);
       textSize(80);
       text("Extra Hard Mode [2]",3*width/4+20,3*height/5);
