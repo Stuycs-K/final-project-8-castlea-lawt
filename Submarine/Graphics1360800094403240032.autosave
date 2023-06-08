@@ -57,7 +57,7 @@ void displayScreen() {
   text("" + sub.oxygen + "  %", 2*width/3+250, height/2 + 400);
   //make shape for oxygen bar thing that goes down according to % of oxygen
   bar = createShape(RECT, 2*width/3+300, height/2 - 30, 20, 700);
-  bar.setFill(#6ea500); //97CC04
+  bar.setFill(color(#7EE081));
   shape(bar);
   fill(100);
   stroke(0);
