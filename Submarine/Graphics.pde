@@ -54,9 +54,9 @@ void displayScreen() {
   text("y: " + sub.getPosY(), 2*width/3 - 95, height/2 +200);
   //for displaying how much oxygen is left
   text("O2", 2*width/3 + 250, height/2 - 400);
-  text("" + sub.oxygen + "  %", 2*width/3+250, height/2 + 400);
+  text("" + sub.getOx()*100/sub.getM() + "  %", 2*width/3+250, height/2 + 400);
   //make shape for oxygen bar thing that goes down according to % of oxygen
-  bar = createShape(RECT, 2*width/3+300, height/2 - 30, 20, 700);
+  bar = createShape(RECT, 2*width/3+300, height/2 - 30, 20, 700*(sub.getOx()*1.0/sub.getM()));
   bar.setFill(color(0,0,255));
   shape(bar);
   fill(100);
@@ -105,9 +105,12 @@ void setup() {
 }
 
 void draw() {
-  if(tickCount == sub.max){
-    
+  if(tickCount == sub.getTi()*100){
+    sub.leak();
     tickCount = 0;
+  }
+  else{
+   tickCount++; 
   }
   if(menu){
     menu();
