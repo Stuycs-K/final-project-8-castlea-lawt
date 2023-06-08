@@ -56,7 +56,7 @@ void displayScreen() {
   text("" + sub.getOx()*100/sub.getM() + "  %", 2*width/3+250, height/2 + 400);
   //make shape for oxygen bar thing that goes down according to % of oxygen
   bar = createShape(RECT, 2*width/3+300, height/2 - 30, 20, 700*(sub.getOx()*1.0/sub.getM()));
-  bar.setFill(#6ea500); //97CC04
+  bar.setFill(#42da8f);
   shape(bar);
   fill(100);
   stroke(0);
@@ -122,7 +122,7 @@ void draw() {
     flicker--;
   }
   if (flicker == 0) {
-    fill(#EFF2C0);
+    fill(#fea139);
     if (sub.getPosX() != sub.getXMax() - 1 && layout.getAt(sub.getPosX()+1, sub.getPosY()) == '#') {
       circle(width/3 + 85, height/2 + 165, 20); //right
     }
@@ -268,7 +268,7 @@ public void rotateLeft() {
 }
 
 public boolean isDone(){
-  if(taskCounter==9){
+  if(taskCounter==9 || sub.getOx()==0){
     return true;
   }
   else{
