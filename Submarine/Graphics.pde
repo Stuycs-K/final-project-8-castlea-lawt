@@ -6,7 +6,6 @@ String[] audNames = new String[]{"degree_tick.wav", "hit_wall.wav", "show_pic.wa
 PShape left, right, up, down, radar, bar, subShape;
 Map layout;
 ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
-//int taskCounter = 0;
 String[]images = new String[]{"task1.png", "task2.jpg", "task3.png", "task4.jpg", "task5.jpg", "task6.jpg", "task7.jpg", "task8.jpg", "task9.png"}; //9 imgs will manually add names of images later on
 PImage[]loadedImg = new PImage[9];
 PImage photo;
@@ -54,9 +53,9 @@ void displayScreen() {
   text("y: " + sub.getPosY(), 2*width/3 - 95, height/2 +200);
   //for displaying how much oxygen is left
   text("O2", 2*width/3 + 250, height/2 - 400);
-  text("" + sub.oxygen + "  %", 2*width/3+250, height/2 + 400);
+  text("" + sub.getOx()*100/sub.getM() + "  %", 2*width/3+250, height/2 + 400);
   //make shape for oxygen bar thing that goes down according to % of oxygen
-  bar = createShape(RECT, 2*width/3+300, height/2 - 30, 20, 700);
+  bar = createShape(RECT, 2*width/3+300, height/2 - 30, 20, 700*(sub.getOx()*1.0/sub.getM()));
   bar.setFill(#6ea500); //97CC04
   shape(bar);
   fill(100);
@@ -105,9 +104,12 @@ void setup() {
 }
 
 void draw() {
-  if(tickCount == sub.max){
-    
+  if(tickCount == sub.getTi()*100){
+    sub.leak();
     tickCount = 0;
+  }
+  else{
+   tickCount++; 
   }
   if(menu){
     menu();
