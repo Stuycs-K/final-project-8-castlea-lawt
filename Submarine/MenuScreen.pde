@@ -51,9 +51,7 @@ public void menu(){
       fill(0,150,20);
       textSize(80);
       text("Easy Mode [0]",width/5-20,3*height/5);
-      sub.setO2(120);
-      sub.setChange(1);
-      sub.setTime(1);
+      sub.setO2(140);
     }
     if(key=='1'){
       layout = new Map(1);
@@ -61,9 +59,7 @@ public void menu(){
       fill(250,0,0);
       textSize(80);
       text("Hard Mode [1]",width/2-95,3*height/5);
-      sub.setO2(90);
-      sub.setChange(1);
-      sub.setTime(1);
+      sub.setO2(120);
     }
     if(key=='2'){
       layout = new Map(2);
@@ -71,9 +67,7 @@ public void menu(){
       fill(150,0,20);
       textSize(80);
       text("Extra Hard Mode [2]",3*width/4+20,3*height/5);
-      sub.setO2(60);
-      sub.setChange(1);
-      sub.setTime(1);
+      sub.setO2(100);
     }
     if(key=='S'||key=='s'){
       menu = false;

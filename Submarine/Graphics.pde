@@ -108,9 +108,6 @@ void draw() {
     sub.leak();
     tickCount = 0;
   }
-  else{
-   tickCount++; 
-  }
   if(menu){
     menu();
   }
@@ -187,9 +184,11 @@ void draw() {
         }
       }
     } else if (key == 'f' || key == 'F') {
+      tickCount++;
       flickMode = !flickMode;
     }
     else if (key == CODED) { // && countdown == 0
+    tickCount++;
       if (keyCode == UP && countMove == 0) {
         countMove += mCount;
         sub.calcForward(sub.getDeg());
@@ -206,10 +205,8 @@ void draw() {
           sub.changeDeg(359);
         }
         if (sub.getDeg()== 359 || (sub.getDeg() != 0 && sub.getDeg() % 45 == 0)) {
-          //radar.rotate(-PI/4);
           rotateLeft();
         }
-        //println("subtract degree - 1, degree is now " + sub.getDeg());
       } else if (keyCode == RIGHT && countdown == 0) {
         audio[0].play();
         countdown += count;
@@ -218,12 +215,16 @@ void draw() {
           sub.changeDeg(0);
         }
         if (sub.getDeg() == 0 || (sub.getDeg()!= 1 && sub.getDeg()%45==1)) {
-          //radar.rotate(PI/4);
           rotateRight();
         }
-        //println("add degree + 1, degree is now " + sub.getDeg()  );
       }
     }
+    else{
+     tickCount++; 
+    }
+  }
+  else{
+   tickCount++; 
   }
   }
 }
