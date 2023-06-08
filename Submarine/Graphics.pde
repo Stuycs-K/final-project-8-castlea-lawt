@@ -214,7 +214,7 @@ void draw() {
   }
 }
 
-public void keyReleased(){
+/*public void keyReleased(){
   println("key released");
  if(keyCode == LEFT || keyCode == RIGHT){
    println("degree audio has been stopped");
@@ -225,7 +225,7 @@ public void keyReleased(){
    takePicCool = 0;
    showPicCool = 0;
  }
-}
+}*/
 
 public void rotateRight() {
   for (int i = 0; i<radar.getVertexCount(); i++) {
