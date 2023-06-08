@@ -59,6 +59,7 @@ public class Submarine {
       audio[1].play();
       println("wall");
     } else {
+      audio[4].play();
       if(layout.getMode()==layout.EASY){
         subShape.translate((x*layout.SQUARESIZE)-(positionX*layout.SQUARESIZE),(y*layout.SQUARESIZE)-(positionY*layout.SQUARESIZE));
       }

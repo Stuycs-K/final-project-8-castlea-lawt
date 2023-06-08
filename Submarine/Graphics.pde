@@ -228,12 +228,7 @@ void draw() {
 
 public void keyReleased(){
   println("key released");
- if(keyCode == LEFT || keyCode == RIGHT){
-   println("degree audio has been stopped");
-   audio[0].stop();
-   degCool = 0;
- }
- else if(key == 'p' || key == 'P'){
+ if(key == 'p' || key == 'P'){
    takePicCool = 0;
    showPicCool = 0;
  }
@@ -282,8 +277,9 @@ public void keyPressed(){
   if(key==ENTER||key==RETURN){
     loop();
     taskCounter = 0;
-    layout.resetTasks();
-    sub.changePos(layout.randX,layout.randY);
+    radar.setVertex(0,new PVector(width/3, height/2+100));
+    radar.setVertex(1,new PVector(width/3-10, height/2+200));
+    radar.setVertex(2,new PVector(width/3+10, height/2+200));
     menu = true;
   }
 }
