@@ -23,7 +23,6 @@ public void menu(){
       textSize(70);
       text("left and right arrow keys -- change degrees", width/2,2*height/5);
       text("up and down arrow keys -- move forward or backward", width/2,height/2);
-      text("[P] -- take a picture",width/2,3*height/5);
       text("[F] -- flicker mode for wall indicators",width/2,height/5*3+90);
       text("[P] -- take a picture (hold down button)",width/2,3*height/5);
     }
