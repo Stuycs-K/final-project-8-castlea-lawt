@@ -112,6 +112,11 @@ void draw() {
   if(isDone()){
     endScreen();
     noLoop();
+  }  
+  if(foundNote){
+    textSize(100);
+    fill(255);
+    text("You found a note, open it? [Z]",4*width/5,height/6,30,20);
   }
   if (flicker > 0) {
     flicker--;
@@ -189,9 +194,10 @@ void draw() {
         countMove += mCount;
         sub.calcForward(sub.getDeg());
         if(layout.getAt(sub.getPosX(),sub.getPosY())=='!'){
-          textSize(50);
+          foundNote = true;
+          /*textSize(100);
           fill(255);
-          text("You found a note, open it? [Z]",4*width/5,height/6,30,20);
+          text("You found a note, open it? [Z]",4*width/5,height/6,30,20);*/
         }
         println("moving forward");
       } else if (keyCode == DOWN && countMove == 0) {
@@ -241,8 +247,7 @@ public void keyReleased(){
  }
  else if(key == 'Z'||key=='z'){
    if(foundNote){
-     eggs.remove(new Coordinate(sub.getPosX(),sub.getPosY()));
-     layout.gotIt(sub.getPosX(),sub.getPosY()
+     layout.gotIt(sub.getPosX(),sub.getPosY());
      notesFound++;
      foundNote = false;
    }

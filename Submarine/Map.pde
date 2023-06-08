@@ -131,15 +131,12 @@ public class Map {
   }
   
   public void openNote(int whichNote){
-    if(map[sub.getPosX()][sub.getPosY()] == '!'){
-      foundNote = true;
-      background(0);
-      fill(255);
-      textSize(200);
-      textAlign(CENTER);
-      text(notes[whichNote],width/2,height/2);
-      textAlign(LEFT);
-    }
+    background(0);
+    fill(255);
+    textSize(200);
+    textAlign(CENTER);
+    text(notes[whichNote],width/2,height/2);
+    textAlign(LEFT);
   }
 
   public void display(){
@@ -194,9 +191,15 @@ public class Map {
               rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
             }
             else{
+              if(working =='!'){
+                fill(0,0,200);
+                rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+              }
+              else{
               if(working != 'x'){
                 fill(0);
                 rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
+              }
               }
             }
           }
