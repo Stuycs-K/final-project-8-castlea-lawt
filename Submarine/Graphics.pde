@@ -217,18 +217,13 @@ void draw() {
   }
 }
 
-/*public void keyReleased(){
+public void keyReleased(){
   println("key released");
- if(keyCode == LEFT || keyCode == RIGHT){
-   println("degree audio has been stopped");
-   audio[0].stop();
-   degCool = 0;
- }
- else if(key == 'p' || key == 'P'){
+ if(key == 'p' || key == 'P'){
    takePicCool = 0;
    showPicCool = 0;
  }
-}*/
+}
 
 public void rotateRight() {
   for (int i = 0; i<radar.getVertexCount(); i++) {
