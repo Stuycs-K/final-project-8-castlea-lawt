@@ -240,4 +240,5 @@ Graphics_Tab: // Got rid of the notes ArrayList because it was useless
               // moved if statement from keyPressed (up) into its own boolean, now the message pops up
 
 Map_Tab:  // Small edits to the carve function to get rid of the non-existent walls
-          // 
+
+MenuScreen_Tab: // added some more lore to the instructions screen, also made the format nicer
