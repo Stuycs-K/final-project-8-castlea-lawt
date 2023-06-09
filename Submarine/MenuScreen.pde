@@ -67,7 +67,7 @@ public void menu(){
       fill(150,0,20);
       textSize(80);
       text("Extra Hard Mode [2]",3*width/4+20,3*height/5);
-      sub.setO2(100);
+      sub.setO2(90);
     }
     if(key=='S'||key=='s'){
       menu = false;
