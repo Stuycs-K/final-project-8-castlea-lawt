@@ -198,7 +198,7 @@ void draw() {
       flickMode = !flickMode;
     }
     else if(key == 'Z'||key=='z'){
-      layout.openNote(notesFound);
+      if(foundNote){layout.openNote(notesFound);}
     }
     else if (key == CODED) { // && countdown == 0
     tickCount++;
