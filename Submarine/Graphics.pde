@@ -79,7 +79,7 @@ void setup() {
    audio[i] = new SoundFile(this, audNames[i]); 
   }
   fullScreen();
-  audio[3].play();
+  audio[3].loop();
   tasks.add(new Coordinate(3, 4));
   tasks.add(new Coordinate(15, 16));
   tasks.add(new Coordinate(12, 16));
