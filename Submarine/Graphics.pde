@@ -99,9 +99,9 @@ void setup() {
   sub = new Submarine(layout.randX, layout.randY);
   subShape = createShape();
   subShape.beginShape();
-  subShape.vertex((sub.getPosX()*layout.SQUARESIZE),(sub.getPosY()*layout.SQUARESIZE)+15);
-  subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+15,sub.getPosY()*layout.SQUARESIZE);
-  subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+15,(sub.getPosY()*layout.SQUARESIZE)+30);
+  subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+15,(sub.getPosY()*layout.SQUARESIZE));
+  subShape.vertex(sub.getPosX()*layout.SQUARESIZE,(sub.getPosY()*layout.SQUARESIZE)+30);
+  subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+30,(sub.getPosY()*layout.SQUARESIZE)+30);
   subShape.endShape(CLOSE);
 }
 
@@ -270,6 +270,18 @@ public void rotateRight() {
     vertex.set(vertex.x+rotateAroundX, vertex.y+rotateAroundY);
     radar.setVertex(i, vertex);
   }
+  for (int i = 0; i<subShape.getVertexCount(); i++) {
+    PVector vertex = subShape.getVertex(i);
+    float originalX = vertex.x-(sub.getPosX()*30+15);
+    float originalY = vertex.y-(sub.getPosY()*30+15);
+    float rotateAroundX = vertex.x-(sub.getPosX()*30+15);
+    float rotateAroundY = vertex.y-(sub.getPosY()*30+15);
+    vertex.set(vertex.x-rotateAroundX, vertex.y-rotateAroundY);
+    rotateAroundX = originalX * cos(PI/4) - originalY * sin(PI/4);
+    rotateAroundY = originalX * sin(PI/4) + originalY * cos(PI/4);
+    vertex.set(vertex.x+rotateAroundX, vertex.y+rotateAroundY);
+    subShape.setVertex(i, vertex);
+  }
 }
 
 public void rotateLeft() {
@@ -284,6 +296,18 @@ public void rotateLeft() {
     rotateAroundY = originalX * sin(-PI/4) + originalY * cos(-PI/4);
     vertex.set(vertex.x+rotateAroundX, vertex.y+rotateAroundY);
     radar.setVertex(i, vertex);
+  }
+  for (int i = 0; i<subShape.getVertexCount(); i++) {
+    PVector vertex = subShape.getVertex(i);
+    float originalX = vertex.x-(sub.getPosX()*30+15);
+    float originalY = vertex.y-(sub.getPosY()*30+15);
+    float rotateAroundX = vertex.x-(sub.getPosX()*30+15);
+    float rotateAroundY = vertex.y-(sub.getPosY()*30+15);
+    vertex.set(vertex.x-rotateAroundX, vertex.y-rotateAroundY);
+    rotateAroundX = originalX * cos(-PI/4) - originalY * sin(-PI/4);
+    rotateAroundY = originalX * sin(-PI/4) + originalY * cos(-PI/4);
+    vertex.set(vertex.x+rotateAroundX, vertex.y+rotateAroundY);
+    subShape.setVertex(i, vertex);
   }
 }
 
@@ -303,6 +327,9 @@ public void keyPressed(){
     radar.setVertex(0,new PVector(width/3, height/2+100));
     radar.setVertex(1,new PVector(width/3-10, height/2+200));
     radar.setVertex(2,new PVector(width/3+10, height/2+200));
+    subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+15,(sub.getPosY()*layout.SQUARESIZE));
+    subShape.vertex(sub.getPosX()*layout.SQUARESIZE,(sub.getPosY()*layout.SQUARESIZE)+30);
+    subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+30,(sub.getPosY()*layout.SQUARESIZE)+30);
     sub.changeDeg(0);
     menu = true;
   }
