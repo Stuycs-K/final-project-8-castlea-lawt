@@ -217,7 +217,27 @@ Map_Tab:  // made a gotIt() function to change the color of the tasks after you 
 Graphics_Tab: // coded the endScreen() function
               // added to keyPressed() to incorporate returning to menu and resetting the screen
               // added menu function and if statement to draw
+              // if statement in keypressed (up) to try and get a message to display when you pass a note
 
 MenuScreen_Tab: // Created a boolean "menu" to implement menu in draw
                 // Set up menu screen with keyPressed booleans
                 // Instructions, controls, mode choices, and the start button are now available in the menu
+
+### 6/7/23
+
+Graphics_Tab: // Made an edit to try an reset the radar when you play a new game.
+              // Created a value for the number of notes found, and a boolean for if a note has been found
+              // Also incorporated the way to access the notes ([z]) into keyPressed()
+
+Map_Tab:  // Created a function (easterEggs()) that made five random spots a note
+          // Put the individual notes into an array
+          // incorporated finding notes into the gotit() function
+          // Made an openNote() function that displays the notes when you find one
+
+### 6/9/23
+
+Graphics_Tab: // Got rid of the notes ArrayList because it was useless
+              // moved if statement from keyPressed (up) into its own boolean, now the message pops up
+
+Map_Tab:  // Small edits to the carve function to get rid of the non-existent walls
+          // 
