@@ -3,6 +3,34 @@ public class Submarine {
   private int positionX, positionY, degrees; // set to a default value later maybe
   private static final int xMax = 20;
   private static final int yMax = 18;
+  private int oxygen, max;
+  private int change = 1;
+  private int time = 1;
+  
+  public void leak(){
+   oxygen -= change; 
+  }
+  
+  public int getOx(){
+   return oxygen; 
+  }
+  
+  public int getCh(){
+   return change; 
+  }
+  
+  public int getTi(){
+   return time; 
+  }
+  
+  public int getM(){
+   return max; 
+  }
+  
+  public void setO2(int ox){
+    oxygen = ox;
+    max = oxygen;
+  }
   
   public int getXMax(){
    return xMax; 
@@ -40,6 +68,7 @@ public class Submarine {
       audio[1].play();
       println("wall");
     } else {
+      audio[4].play();
       if(layout.getMode()==layout.EASY){
         subShape.translate((x*layout.SQUARESIZE)-(positionX*layout.SQUARESIZE),(y*layout.SQUARESIZE)-(positionY*layout.SQUARESIZE));
       }

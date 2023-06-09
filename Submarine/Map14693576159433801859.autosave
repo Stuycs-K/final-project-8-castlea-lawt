@@ -2,11 +2,9 @@ public class Map {
  private char[][] map;
   private int mode, SQUARESIZE;
   private Coordinate start;
-  private String[] notes = new String[]{"They sent you here to die","You'll never make it out in time","Why are you still trying?","You were never meant to see these things","Secrets like this like to stay BURIED"};
   boolean cheat = false;
   int EASY = 0;
   int HARD = 1;
-  int EXTRAHARD = 2;
   int randX = (int)(Math.random()*19)+1;
   int randY = (int)(Math.random()*17)+1;
   public Map(int mo) {
@@ -40,7 +38,6 @@ public class Map {
     for(int i = 0; i<tasks.size(); i++){
       carve(tasks.get(i),1);
     }
-    makeEasterEggs();
   }
   
   public void carve(Coordinate startSpot, int special){
@@ -107,37 +104,12 @@ public class Map {
       map[x][y] = '@';
       taskCounter++;
     }
-    if(map[x][y]=='!'){
-      map[x][y] = ' ';
-    }
   }
   
   public void resetTasks(){
     for(int i = 0; i<tasks.size(); i++){
       map[tasks.get(i).getX()][tasks.get(i).getY()] = '*';
     }
-  }
-  
-  public void makeEasterEggs(){
-    int i = 0;
-    while(i<5){
-      int rX = (int)(Math.random()*19)+1;
-      int rY = (int)(Math.random()*17)+1;
-      if(map[rX][rY]==' '){
-        map[rX][rY]='!';
-        eggs.add(new Coordinate(rX,rY));
-        i++;
-      }
-    }
-  }
-  
-  public void openNote(int whichNote){
-    background(0);
-    fill(255);
-    textSize(200);
-    textAlign(CENTER);
-    text(notes[whichNote],width/2,height/2);
-    textAlign(LEFT);
   }
 
   public void display(){
@@ -147,7 +119,7 @@ public class Map {
     for(int i = 0;i<20;i++){
       for(int x = 0; x<18; x++){
         char working = map[i][x];
-        if(working==' '||working=='!'){
+        if(working==' '){
           if(i>0&&x>0){
             if(map[i-1][x]=='#'&&map[i][x-1]=='#'){
               fill(0);
@@ -162,45 +134,39 @@ public class Map {
                   fill(0);
                   triangle(i*SQUARESIZE+SQUARESIZE,x*SQUARESIZE+SQUARESIZE,i*SQUARESIZE+SQUARESIZE,x*SQUARESIZE,i*SQUARESIZE,x*SQUARESIZE+SQUARESIZE);
                   map[i][x]='>'; //meant to be \, but that doesn't work as a char
-                  fill(#9AD5CA);
+                  fill(#698f3f); //0,50,0
                   triangle(i*SQUARESIZE,x*SQUARESIZE,i*SQUARESIZE+SQUARESIZE,x*SQUARESIZE,i*SQUARESIZE,x*SQUARESIZE+SQUARESIZE);
                 }
                 else{
-                  fill(#9AD5CA);
+                  fill(#698f3f);
                   rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
                 }
               }
               else{
-                 fill(#9AD5CA);
+                 fill(#698f3f);
                  rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
                }
             }
           }
           else{
-            fill(#9AD5CA);
+            fill(#698f3f);
             rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
           }
         }
         else{
           if(working == '*'){
-            fill(#c913ff);
+            fill(150,0,20);
             rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
           }
           else{
             if(working == '@'){
-              fill(#5c01fe);
+              fill(150,0,150);
               rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
             }
             else{
-              if(working =='!'){
-                fill(0,0,200);
-                rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
-              }
-              else{
               if(working != 'x'){
                 fill(0);
                 rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
-              }
               }
             }
           }

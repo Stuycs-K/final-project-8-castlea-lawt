@@ -80,8 +80,8 @@ Graphics_Tab // Added a key press to turn on/off flickering for the radar's wall
 Graphics_Tab: // Adjusted bounds for when the radar rotates
 
 ### 6/6/23
-Repo: //Added mp3 files for audio -> Converted and replaced to wav files
-      //These files included a sound effect for when submarine hits wall, when submarine moves(not yet implemented),
+Repo: // Added mp3 files for audio -> Converted and replaced to wav files
+      // These files included a sound effect for when submarine hits wall, when submarine moves(not yet implemented),
         when altering degrees, when taking a picture, when showing a picture and ambience music.
 
 Submarine_Tab: //Fixed forward movement for degrees from 46-90 and fixed backward and forward movement for degrees 226 - 270
@@ -91,6 +91,30 @@ Graphics_Tab:  // Sound is loaded in setup
                // Made variables takePicCool and showPicCool so sound is only played once(instead of on loop) when the key 'p' is pressed
                // Made a keyReleased function for sound cooldown/stopping
 
+### 6/7/23
+Repo: // Deleted Progress and RunSubmarine Tab because we no longer use/need them anymore
+
+Graphics_Tab: // Add instructions for flicker mode on the menu screen
+              // Made tickCount variable for oxygen mechanic and started working on
+              // Made PShape for the oxygen bar and working on it
+
+Submarine_Tab: // Made public variables oxygen, change, time and max and their corresponding set methods
+
+### 6/8/23
+Repo: // Shortened audio for degree tick, sub move and take pic
+
+Submarine_Tab: // incorporated audio for whenever submarine moves and doesn't hit wall
+               // Made oxygen mechanic variables private and made accessor methods, removed the set methods for change and time
+
+Graphics_Tab: // Removed degree tick from keyReleased function
+              // Changed color of radar wall indicators and also for oxygen bar which shrinks as oxygen decreases
+              // Made displays for the oxygen
+              // Finished Oxygen Mechanic, oxygen also does not decrease while looking at picture, when oxygen reaches 0 end screen appears
+
+Map_Tab: // Changed color of the map
+
+MenuScreen_Tab: // Set conditions for each difficulty mode
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## GROUP MEMBER 2 : Anabella Castle
 

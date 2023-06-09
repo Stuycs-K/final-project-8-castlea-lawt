@@ -6,9 +6,7 @@ String[] audNames = new String[]{"degree_tick.wav", "hit_wall.wav", "show_pic.wa
 PShape left, right, up, down, radar, bar, subShape;
 Map layout;
 ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
-ArrayList<Coordinate> eggs = new ArrayList<Coordinate>(5);
-int notesFound = 0;
-boolean foundNote = false;
+//int taskCounter = 0;
 String[]images = new String[]{"task1.png", "task2.jpg", "task3.png", "task4.jpg", "task5.jpg", "task6.jpg", "task7.jpg", "task8.jpg", "task9.png"}; //9 imgs will manually add names of images later on
 PImage[]loadedImg = new PImage[9];
 PImage photo;
@@ -56,10 +54,10 @@ void displayScreen() {
   text("y: " + sub.getPosY(), 2*width/3 - 95, height/2 +200);
   //for displaying how much oxygen is left
   text("O2", 2*width/3 + 250, height/2 - 400);
-  text("" + sub.getOx()*100/sub.getM() + "  %", 2*width/3+250, height/2 + 400);
+  text("" + sub.oxygen + "  %", 2*width/3+250, height/2 + 400);
   //make shape for oxygen bar thing that goes down according to % of oxygen
-  bar = createShape(RECT, 2*width/3+300, height/2 - 30, 20, 700*(sub.getOx()*1.0/sub.getM()));
-  bar.setFill(#42da8f);
+  bar = createShape(RECT, 2*width/3+300, height/2 - 30, 20, 700);
+  bar.setFill(color(#7EE081));
   shape(bar);
   fill(100);
   stroke(0);
@@ -107,8 +105,8 @@ void setup() {
 }
 
 void draw() {
-  if(tickCount == sub.getTi()*100){
-    sub.leak();
+  if(tickCount == sub.max){
+    
     tickCount = 0;
   }
   if(menu){
@@ -120,17 +118,12 @@ void draw() {
   if(isDone()){
     endScreen();
     noLoop();
-  }  
-  if(foundNote){
-    textSize(100);
-    fill(255);
-    text("You found a note, open it? [Z]",4*width/5,height/6,30,20);
   }
   if (flicker > 0) {
     flicker--;
   }
   if (flicker == 0) {
-    fill(#fea139);
+    fill(#EFF2C0);
     if (sub.getPosX() != sub.getXMax() - 1 && layout.getAt(sub.getPosX()+1, sub.getPosY()) == '#') {
       circle(width/3 + 85, height/2 + 165, 20); //right
     }
@@ -192,23 +185,12 @@ void draw() {
         }
       }
     } else if (key == 'f' || key == 'F') {
-      tickCount++;
       flickMode = !flickMode;
     }
-    else if(key == 'Z'||key=='z'){
-      layout.openNote(notesFound);
-    }
     else if (key == CODED) { // && countdown == 0
-    tickCount++;
       if (keyCode == UP && countMove == 0) {
         countMove += mCount;
         sub.calcForward(sub.getDeg());
-        if(layout.getAt(sub.getPosX(),sub.getPosY())=='!'){
-          foundNote = true;
-          /*textSize(100);
-          fill(255);
-          text("You found a note, open it? [Z]",4*width/5,height/6,30,20);*/
-        }
         println("moving forward");
       } else if (keyCode == DOWN && countMove == 0) {
         countMove += mCount;
@@ -222,8 +204,10 @@ void draw() {
           sub.changeDeg(359);
         }
         if (sub.getDeg()== 359 || (sub.getDeg() != 0 && sub.getDeg() % 45 == 0)) {
+          //radar.rotate(-PI/4);
           rotateLeft();
         }
+        //println("subtract degree - 1, degree is now " + sub.getDeg());
       } else if (keyCode == RIGHT && countdown == 0) {
         audio[0].play();
         countdown += count;
@@ -232,16 +216,12 @@ void draw() {
           sub.changeDeg(0);
         }
         if (sub.getDeg() == 0 || (sub.getDeg()!= 1 && sub.getDeg()%45==1)) {
+          //radar.rotate(PI/4);
           rotateRight();
         }
+        //println("add degree + 1, degree is now " + sub.getDeg()  );
       }
     }
-    else{
-     tickCount++; 
-    }
-  }
-  else{
-   tickCount++; 
   }
   }
 }
@@ -251,13 +231,6 @@ public void keyReleased(){
  if(key == 'p' || key == 'P'){
    takePicCool = 0;
    showPicCool = 0;
- }
- else if(key == 'Z'||key=='z'){
-   if(foundNote){
-     layout.gotIt(sub.getPosX(),sub.getPosY());
-     notesFound++;
-     foundNote = false;
-   }
  }
 }
 
@@ -292,7 +265,7 @@ public void rotateLeft() {
 }
 
 public boolean isDone(){
-  if(taskCounter==9 || sub.getOx()==0){
+  if(taskCounter==9){
     return true;
   }
   else{
