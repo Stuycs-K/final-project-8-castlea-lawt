@@ -131,12 +131,14 @@ public class Map {
   }
   
   public void openNote(int whichNote){
-    background(0);
-    fill(255);
-    textSize(150);
-    textAlign(CENTER);
-    text(notes[whichNote],width/4,height/4,width/2,2*height/3);
-    textAlign(LEFT);
+    if(whichNote<notes.length){
+      background(0);
+      fill(255);
+      textSize(150);
+      textAlign(CENTER);
+      text(notes[whichNote],width/4,height/4,width/2,2*height/3);
+      textAlign(LEFT);
+    }
   }
 
   public void display(){
@@ -146,7 +148,7 @@ public class Map {
     for(int i = 0;i<20;i++){
       for(int x = 0; x<18; x++){
         char working = map[i][x];
-        if(working==' '/*||working=='!'*/){
+        if(working==' '||working=='!'){
           fill(#9AD5CA);
           rect(i*SQUARESIZE,x*SQUARESIZE,SQUARESIZE,SQUARESIZE);
         }
