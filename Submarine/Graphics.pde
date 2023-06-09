@@ -6,7 +6,6 @@ String[] audNames = new String[]{"degree_tick.wav", "hit_wall.wav", "show_pic.wa
 PShape left, right, up, down, radar, bar, subShape;
 Map layout;
 ArrayList<Coordinate>tasks = new ArrayList<Coordinate>(9);//randomized or not? + placeholder c
-ArrayList<Coordinate> eggs = new ArrayList<Coordinate>(5);
 int notesFound = 0;
 boolean foundNote = false;
 String[]images = new String[]{"task1.png", "task2.jpg", "task3.png", "task4.jpg", "task5.jpg", "task6.jpg", "task7.jpg", "task8.jpg", "task9.png"}; //9 imgs will manually add names of images later on
@@ -121,10 +120,13 @@ void draw() {
     endScreen();
     noLoop();
   }  
+  if(layout.getAt(sub.getPosX(),sub.getPosY())=='!'){
+    foundNote = true;
+  }
   if(foundNote){
-    textSize(100);
+    textSize(50);
     fill(255);
-    text("You found a note, open it? [Z]",4*width/5,height/6,30,20);
+    text("You found a note, open it? [Press and hold Z]",width/2-150, height/2-330, 350, 500);
   }
   if (flicker > 0) {
     flicker--;
@@ -203,12 +205,6 @@ void draw() {
       if (keyCode == UP && countMove == 0) {
         countMove += mCount;
         sub.calcForward(sub.getDeg());
-        if(layout.getAt(sub.getPosX(),sub.getPosY())=='!'){
-          foundNote = true;
-          /*textSize(100);
-          fill(255);
-          text("You found a note, open it? [Z]",4*width/5,height/6,30,20);*/
-        }
         println("moving forward");
       } else if (keyCode == DOWN && countMove == 0) {
         countMove += mCount;
