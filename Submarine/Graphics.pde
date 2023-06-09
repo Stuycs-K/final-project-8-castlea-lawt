@@ -303,6 +303,7 @@ public void keyPressed(){
     radar.setVertex(0,new PVector(width/3, height/2+100));
     radar.setVertex(1,new PVector(width/3-10, height/2+200));
     radar.setVertex(2,new PVector(width/3+10, height/2+200));
+    sub.changeDeg(0);
     menu = true;
   }
 }
