@@ -32,12 +32,12 @@ public void menu(){
       fill(255);
       text("IRON LUNG",width/2,height/4);
       textSize(65);
-      text("You are exploring an uncharted part of the ocean.",width/2,2*height/5);
-      text("You need to take pictures at the designated locations (red squares)",width/2,height/2);
-      text("before you run out of oxygen (green bar).",width/2,3*height/5);
-      text("Due to the amount of pressure your ship is under, you are going to",width/2,7*height/10);
-      text("have to rely on your map and your radar to navigate.",width/2,4*height/5);
-      text("Good luck.",width/2,9*height/10);
+      text("Hello Prisoner. Today you are exploring an uncharted part of the ocean. You need to take pictures at the designated locations (red squares) before you run out of oxygen (green bar). Due to the amount of pressure your ship is under, you are going to have to rely on your map and your radar to navigate. If you successfully complete this, you will be pardoned. Good luck.",100,height/3,width-200,height);
+      //text("You need to take pictures at the designated locations (red squares)",width/2,height/2);
+      //text("before you run out of oxygen (green bar).",width/2,3*height/5);
+      //text("Due to the amount of pressure your ship is under, you are going to",width/2,7*height/10);
+      //text("have to rely on your map and your radar to navigate.",width/2,4*height/5);
+      //text("Good luck.",width/2,9*height/10);
     }
     if(key=='0'){
       layout = new Map(0);
