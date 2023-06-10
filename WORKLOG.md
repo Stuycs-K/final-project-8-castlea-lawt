@@ -114,6 +114,11 @@ Graphics_Tab: // Removed degree tick from keyReleased function
 Map_Tab: // Changed color of the map
 
 MenuScreen_Tab: // Set conditions for each difficulty mode
+
+### 6/9/23
+MenuScreen_Tab: // Decreased time limit for extra hard mode
+
+Graphics_Tab: // Atmospheric music now loops over
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## GROUP MEMBER 2 : Anabella Castle
