@@ -17,6 +17,7 @@ boolean menu = true;
 Submarine sub;
 int countdown = 0;
 int countMove = 0;
+int countFlick = 0;
 int flicker = 0;
 int taskCounter = 0;
 boolean flickMode = false;
@@ -168,6 +169,9 @@ void draw() {
   if( countMove > 0){
    countMove--; 
   }
+  if( countFlick > 0){
+   countFlick--; 
+  }
   if (keyPressed) {
     if (key == 'p' || key == 'P') {
       if(takePicCool == 0){
@@ -193,8 +197,9 @@ void draw() {
           text("Not a task location. Try again.", height/2 + 230, width/2 -780, 350, 500); // width and then height of txt box
         }
       }
-    } else if (key == 'f' || key == 'F') {
+    } else if ((key == 'f' || key == 'F') && countFlick == 0) {
       tickCount++;
+      countFlick +=mCount;
       flickMode = !flickMode;
     }
     else if(key == 'Z'||key=='z'){
