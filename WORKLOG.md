@@ -119,6 +119,11 @@ MenuScreen_Tab: // Set conditions for each difficulty mode
 MenuScreen_Tab: // Decreased time limit for extra hard mode
 
 Graphics_Tab: // Atmospheric music now loops over
+
+### 6/10/23
+Repo: // Updated ReadMe.md
+
+Graphics_Tab: // Added a counter for flick so now the radar's flickermode works consistently
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## GROUP MEMBER 2 : Anabella Castle
