@@ -254,3 +254,7 @@ Map_Tab:  // Small edits to the carve function to get rid of the non-existent wa
 
 MenuScreen_Tab: // added some more lore to the instructions screen, also made the format nicer
                 // adjusted what happens when you select easy mode
+
+### 6/12/23
+
+Graphics_Tab/MenuScreen_Tab: // changed the subShape into a circle
