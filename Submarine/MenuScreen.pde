@@ -42,11 +42,11 @@ public void menu(){
     if(key=='0'){
       layout = new Map(0);
       sub = new Submarine(layout.randX, layout.randY);
-      subShape = createShape();
-      subShape.beginShape();
+      subShape = createShape(ELLIPSE,(sub.getPosX()*layout.SQUARESIZE)+15,(sub.getPosY()*layout.SQUARESIZE)+15,15,15);
+      /*subShape.beginShape();
       subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+15,(sub.getPosY()*layout.SQUARESIZE));
       subShape.vertex(sub.getPosX()*layout.SQUARESIZE,(sub.getPosY()*layout.SQUARESIZE)+30);
-      subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+30,(sub.getPosY()*layout.SQUARESIZE)+30);subShape.endShape(CLOSE);
+      subShape.vertex((sub.getPosX()*layout.SQUARESIZE)+30,(sub.getPosY()*layout.SQUARESIZE)+30);subShape.endShape(CLOSE);*/
       fill(0,150,20);
       textSize(80);
       text("Easy Mode [0]",width/5-20,3*height/5);
