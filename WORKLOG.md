@@ -288,3 +288,4 @@ Sound: Apparently there is a bug where all the sounds meshes together? But it wa
 
 ### CONTENT RESOURCES
 Sounds & Speech in Processing. Playing Sounds | by Violet Whitney | Measuring the Great Indoors | Medium // For implementing Sound
+Processing: References // For referencing Processing features that we hadn't used before and to help with formatting code
