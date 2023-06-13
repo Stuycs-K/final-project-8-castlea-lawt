@@ -266,11 +266,14 @@ Submarine
   Visibility: Can be shown or not shown on the map
   Movement: Moves correctly according to the degrees and direction(forward/backward), can also NOT go through walls
 Menu Screen
+  Visibility: Shows up consistently whenever you start/restart the game
+  Function: all buttons work and present the advertised information
 End Screen
-  Visibility:
+  Visibility: Takes up full screen as intended
   Function: Is displayed when all 9 images are taken or when there is no more oxygen
 Map
   Visibility: Colors of images are updated if taken
+  Function: Map is randomly carved every time, no false walls are displayed
 Radar
   Visibility: The radar pointer rotates through 8 different directions(controlled through left and right arrow keys) and points at the appropriate spots
   Function: It modifies the degrees accordingly
@@ -280,11 +283,13 @@ Oxygen
 Images
   Visibility: Picture is shown continuously if button 'p' is held down
 Easter Eggs
+  Visibility: user is alerted if they come across a note, and the note is visible
+  Function: Notes are displayed when proper button is clicked
 
 
 ### BROKEN FEATURES
-Sound: Apparently there is a bug where all the sounds meshes together? But it was only experienced once by one group member,
-       so we don’t know what the problem is or how to fix it. Besides this one bug, sound is fine.
+Sound: Apparently there is a bug where all the sounds meshes together? But it was only experienced once by one group member, so we don’t know what the problem is or how to fix it. Besides this one bug, sound is fine.
+Map: Occasionally the map closes itself. It hasn't happened in a while, but I'm not sure if it's a result of something we fixed, or chance due to the random nature of the carve method.
 
 ### CONTENT RESOURCES
 Sounds & Speech in Processing. Playing Sounds | by Violet Whitney | Measuring the Great Indoors | Medium // For implementing Sound
