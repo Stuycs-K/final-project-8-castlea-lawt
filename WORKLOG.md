@@ -1,4 +1,4 @@
-# Work Log
+# Work Log (scroll to end for dev log)
 
 ## GROUP MEMBER 1: Tammy Law
 
@@ -258,3 +258,33 @@ MenuScreen_Tab: // added some more lore to the instructions screen, also made th
 ### 6/12/23
 
 Graphics_Tab/MenuScreen_Tab: // changed the subShape into a circle
+
+
+# DEV LOGS
+### WORKING FEATURES
+Submarine
+  Visibility: Can be shown or not shown on the map
+  Movement: Moves correctly according to the degrees and direction(forward/backward), can also NOT go through walls
+Menu Screen
+End Screen
+  Visibility:
+  Function: Is displayed when all 9 images are taken or when there is no more oxygen
+Map
+  Visibility: Colors of images are updated if taken
+Radar
+  Visibility: The radar pointer rotates through 8 different directions(controlled through left and right arrow keys) and points at the appropriate spots
+  Function: It modifies the degrees accordingly
+Oxygen
+  Visibility: The oxygen bar is visibly decreasing and shows the amount of oxygen left
+  Function: The oxygen decreases at a stable rate according to a fixed amount of ticks. The rate is adjusted according to difficulty mode
+Images
+  Visibility: Picture is shown continuously if button 'p' is held down
+Easter Eggs
+
+
+### BROKEN FEATURES
+Sound: Apparently there is a bug where all the sounds meshes together? But it was only experienced once by one group member,
+       so we don’t know what the problem is or how to fix it. Besides this one bug, sound is fine.
+
+### CONTENT RESOURCES
+Sounds & Speech in Processing. Playing Sounds | by Violet Whitney | Measuring the Great Indoors | Medium // For implementing Sound
